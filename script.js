@@ -17,7 +17,7 @@ async function saveToSupabase(payload,file){
     if(!r.ok) throw new Error('Attachment upload failed');
     attachment_url=path;
   }
-  const r=await fetch(`${cfg.SUPABASE_URL}/rest/v1/enquiries`,{method:'POST',headers:{...headers,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({...payload,attachment_path:attachment_url})});
+  const r=await fetch(`${cfg.SUPABASE_URL}/rest/v1/enquiries`,{method:'POST',headers:{...headers,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({...payload,attachment_path:attachment_url,status:payload.status||'new'})});
   if(!r.ok) throw new Error('Could not save enquiry');
   return true;
 }
