@@ -7,8 +7,8 @@
   5. For a quick first deployment, you can leave these blank: forms will open a pre-filled email instead.
 */
 window.SLS_CONFIG = {
-  SUPABASE_URL: 'https://cvuovpouwfuiomaclrn.supabase.co',
+  SUPABASE_URL: 'https://cvuovpouwfuiiomaclrn.supabase.co',
   SUPABASE_ANON_KEY: 'sb_publishable_0ClnQmdNTQUDKoORntc-Jw_utWHZrXK',
   NOTIFY_EMAIL: 'saiscientific.dhaara@gmail.com',
-  WHATSAPP: '919290925253'
+  WHATSAPP: ['919290925253', '918465089044']
 };
