@@ -1,1 +1,261 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SLS Admin Panel</title><link rel="stylesheet" href="styles.css"></head><body><main class="section"><div class="container"><p class="eyebrow">ADMIN PANEL</p><h1 style="color:var(--navy)">Sri Laxmi Sai Scientific Services</h1><p>Enter your Supabase details in <code>config.js</code> before using this page.</p><div class="form-card" style="margin-top:25px"><div class="two"><label>Admin email<input id="email" type="email"></label><label>Password<input id="password" type="password"></label></div><button class="btn primary" id="login">Login</button><p class="form-note" id="loginStatus"></p></div><div id="panel" style="display:none;margin-top:30px"><div class="section-head"><div><p class="eyebrow">ENQUIRIES</p><h2>Customer requests</h2></div><button class="btn outline" id="refresh">Refresh</button></div><div style="overflow:auto"><table id="table" style="width:100%;border-collapse:collapse;background:#fff"><thead><tr><th style="padding:12px;text-align:left">Date</th><th style="padding:12px;text-align:left">Type</th><th style="padding:12px;text-align:left">Customer</th><th style="padding:12px;text-align:left">Phone</th><th style="padding:12px;text-align:left">Subject</th><th style="padding:12px;text-align:left">Location</th><th style="padding:12px;text-align:left">Message</th><th style="padding:12px;text-align:left">Attachment</th></tr></thead><tbody></tbody></table></div></div></div></main><script src="config.js"></script><script src="admin.js?v=3"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>SLS Admin Panel</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .admin-toolbar{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr auto;
+      gap:12px;
+      margin:24px 0;
+      align-items:end;
+    }
+
+    .admin-toolbar input,
+    .admin-toolbar select{
+      width:100%;
+      padding:12px 14px;
+      border:1px solid #ccd8e5;
+      border-radius:8px;
+      font:inherit;
+      background:#fff;
+    }
+
+    .request-count{
+      margin:10px 0 16px;
+      color:#52677f;
+      font-weight:600;
+    }
+
+    .admin-table-wrap{
+      overflow:auto;
+      background:#fff;
+      border:1px solid #e1e7ee;
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(8,42,77,.06);
+    }
+
+    #table{
+      width:100%;
+      min-width:1250px;
+      border-collapse:collapse;
+    }
+
+    #table th{
+      background:#f5f8fb;
+      color:var(--navy);
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    #table th,
+    #table td{
+      padding:12px;
+      border-bottom:1px solid #e5ebf1;
+      text-align:left;
+      vertical-align:top;
+    }
+
+    #table tbody tr:hover{
+      background:#fafcff;
+    }
+
+    .status-select{
+      padding:8px 10px;
+      border:1px solid #cbd8e5;
+      border-radius:7px;
+      background:#fff;
+      font:inherit;
+      min-width:125px;
+    }
+
+    .admin-action{
+      display:inline-block;
+      margin:2px 4px 2px 0;
+      padding:7px 10px;
+      border:1px solid #cbd8e5;
+      border-radius:7px;
+      background:#fff;
+      color:var(--navy);
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .admin-action:hover{
+      background:#f4f8fc;
+    }
+
+    .attachment-btn{
+      border-color:#0b5fa5;
+      color:#0b5fa5;
+    }
+
+    .status-note{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      color:#5c7087;
+    }
+
+    .empty-row{
+      text-align:center !important;
+      padding:30px !important;
+      color:#65788f;
+    }
+
+    @media(max-width:900px){
+      .admin-toolbar{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="section">
+  <div class="container">
+
+    <p class="eyebrow">ADMIN PANEL</p>
+
+    <h1 style="color:var(--navy)">
+      Sri Laxmi Sai Scientific Services
+    </h1>
+
+    <p>
+      Customer enquiries, service requests and attachments.
+    </p>
+
+    <!-- LOGIN -->
+    <div class="form-card" style="margin-top:25px">
+
+      <div class="two">
+
+        <label>
+          Admin email
+          <input id="email" type="email" autocomplete="username">
+        </label>
+
+        <label>
+          Password
+          <input id="password" type="password" autocomplete="current-password">
+        </label>
+
+      </div>
+
+      <button class="btn primary" id="login">
+        Login
+      </button>
+
+      <p class="form-note" id="loginStatus"></p>
+
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="panel" style="display:none;margin-top:30px">
+
+      <div class="section-head">
+
+        <div>
+          <p class="eyebrow">ENQUIRIES</p>
+          <h2>Customer requests</h2>
+        </div>
+
+        <button class="btn outline" id="refresh">
+          Refresh
+        </button>
+
+      </div>
+
+      <!-- FILTERS -->
+      <div class="admin-toolbar">
+
+        <label>
+          Search
+          <input
+            id="search"
+            type="search"
+            placeholder="Customer, company, phone, product..."
+          >
+        </label>
+
+        <label>
+          Type
+          <select id="typeFilter">
+            <option value="">All types</option>
+            <option value="product">Product</option>
+            <option value="service">Service</option>
+          </select>
+        </label>
+
+        <label>
+          Status
+          <select id="statusFilter">
+            <option value="">All statuses</option>
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Closed">Closed</option>
+          </select>
+        </label>
+
+        <div>
+          <button class="btn outline" id="clearFilters" type="button">
+            Clear
+          </button>
+        </div>
+
+      </div>
+
+      <div class="request-count" id="requestCount">
+        No requests loaded.
+      </div>
+
+      <!-- TABLE -->
+      <div class="admin-table-wrap">
+
+        <table id="table">
+
+          <thead>
+            <tr>
+
+              <th>Date</th>
+              <th>Type</th>
+              <th>Customer</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Location</th>
+              <th>Instrument</th>
+              <th>Message</th>
+              <th>Status</th>
+              <th>Attachment</th>
+              <th>Contact</th>
+
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<script src="config.js"></script>
+<script src="admin.js?v=4"></script>
+
+</body>
+</html>
