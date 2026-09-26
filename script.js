@@ -9,20 +9,62 @@ document.querySelectorAll('.service-enquire').forEach(b=>b.addEventListener('cli
 
 async function saveToSupabase(payload,file){
   if(!cfg.SUPABASE_URL||!cfg.SUPABASE_ANON_KEY) return false;
+
   let attachment_url='';
-  const headers={apikey:cfg.SUPABASE_ANON_KEY,Authorization:`Bearer ${cfg.SUPABASE_ANON_KEY}`};
+  const headers={
+    apikey:cfg.SUPABASE_ANON_KEY,
+    Authorization:`Bearer ${cfg.SUPABASE_ANON_KEY}`
+  };
+
   if(file){
-    const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_'); const path=`${Date.now()}-${safe}`;
-    const r=await fetch(`${cfg.SUPABASE_URL}/storage/v1/object/service-attachments/${path}`,{method:'POST',headers:{...headers,'Content-Type':file.type||'application/octet-stream'},body:file});
-    if(!r.ok) throw new Error('Attachment upload failed');
+    const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+    const path=`${Date.now()}-${safe}`;
+
+    const uploadResponse=await fetch(
+      `${cfg.SUPABASE_URL}/storage/v1/object/service-attachments/${path}`,
+      {
+        method:'POST',
+        headers:{
+          ...headers,
+          'Content-Type':file.type||'application/octet-stream'
+        },
+        body:file
+      }
+    );
+
+    if(!uploadResponse.ok){
+      throw new Error('Attachment upload failed');
+    }
+
     attachment_url=path;
   }
-  const r=const { attachment, ...cleanPayload } = payload;
-const r=await fetch(`${cfg.SUPABASE_URL}/rest/v1/enquiries`,{method:'POST',headers:{...headers,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({...cleanPayload,attachment_path:attachment_url})});
-  if(!r.ok) throw new Error('Could not save enquiry');
+
+  const {attachment,...cleanPayload}=payload;
+
+  const response=await fetch(
+    `${cfg.SUPABASE_URL}/rest/v1/enquiries`,
+    {
+      method:'POST',
+      headers:{
+        ...headers,
+        'Content-Type':'application/json',
+        'Prefer':'return=minimal'
+      },
+      body:JSON.stringify({
+        ...cleanPayload,
+        attachment_path:attachment_url,
+        status:payload.status||'New'
+      })
+    }
+  );
+
+  if(!response.ok){
+    const errorText=await response.text();
+    throw new Error(`Could not save enquiry: ${errorText}`);
+  }
+
   return true;
-}
-function mailFallback(data,fileName=''){
+}function mailFallback(data,fileName=''){
   const subject=encodeURIComponent(`${data.type==='service'?'Service Request':'Product Enquiry'} - ${data.subject||'Sri Laxmi Sai Scientific Services'}`);
   const body=encodeURIComponent(`Name: ${data.name||''}\nCompany: ${data.company||''}\nPhone: ${data.phone||''}\nEmail: ${data.email||''}\nLocation: ${data.location||''}\nInstrument: ${data.instrument||''}\nProduct/Service: ${data.subject||''}\nRequirement: ${data.message||''}\nAttachment selected: ${fileName||'None'}\n\nSent from website enquiry form.`);
   window.location.href=`mailto:${cfg.NOTIFY_EMAIL||'saiscientific.dhaara@gmail.com'}?subject=${subject}&body=${body}`;
