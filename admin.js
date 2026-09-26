@@ -1,5 +1,6 @@
 const c = window.SLS_CONFIG || {};
 let token = '';
+let allRows = [];
 
 const $ = (id) => document.getElementById(id);
 
@@ -33,7 +34,9 @@ async function createSignedUrl(path) {
 
   if (!response.ok) {
     throw new Error(
-      data.message || data.error || 'Could not create attachment link'
+      data.message ||
+      data.error ||
+      'Could not create attachment link'
     );
   }
 
@@ -41,22 +44,376 @@ async function createSignedUrl(path) {
     throw new Error('Signed URL was not returned');
   }
 
-  if (data.signedURL.startsWith('http')) {
-    return data.signedURL;
+  let signedUrl = data.signedURL;
+
+  if (signedUrl.startsWith('http')) {
+    signedUrl = signedUrl.replace(
+      '/object/sign/',
+      '/storage/v1/object/sign/'
+    );
+
+    return signedUrl;
   }
 
-  if (data.signedURL.startsWith('/storage/v1/')) {
-    return `${c.SUPABASE_URL}${data.signedURL}`;
+  if (signedUrl.startsWith('/storage/v1/')) {
+    return `${c.SUPABASE_URL}${signedUrl}`;
   }
 
-  return `${c.SUPABASE_URL}/storage/v1${data.signedURL}`;
+  if (signedUrl.startsWith('/object/sign/')) {
+    return `${c.SUPABASE_URL}/storage/v1${signedUrl}`;
+  }
+
+  return `${c.SUPABASE_URL}/storage/v1/${signedUrl}`;
 }
+
+function getFilteredRows() {
+
+  const search = $('search').value.trim().toLowerCase();
+  const type = $('typeFilter').value;
+  const status = $('statusFilter').value;
+
+  return allRows.filter((x) => {
+
+    const searchable = [
+      x.name,
+      x.company,
+      x.phone,
+      x.email,
+      x.subject,
+      x.location,
+      x.instrument,
+      x.message
+    ]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+
+    const matchesSearch =
+      !search || searchable.includes(search);
+
+    const matchesType =
+      !type || x.type === type;
+
+    const matchesStatus =
+      !status || (x.status || 'New') === status;
+
+    return matchesSearch && matchesType && matchesStatus;
+  });
+}
+
+function renderRows(rows) {
+
+  const tbody = document.querySelector('#table tbody');
+
+  tbody.innerHTML = '';
+
+  if (!rows.length) {
+
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+      <td colspan="12" class="empty-row">
+        No matching customer requests found.
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+
+    $('requestCount').textContent =
+      `Showing 0 of ${allRows.length} request(s).`;
+
+    return;
+  }
+
+  for (const x of rows) {
+
+    let attachmentHtml =
+      '<span style="color:#777">None</span>';
+
+    if (x.attachment_path) {
+
+      attachmentHtml = `
+        <button
+          type="button"
+          class="admin-action attachment-btn attachment-view"
+          data-path="${esc(x.attachment_path)}"
+        >
+          View / Download
+        </button>
+      `;
+    }
+
+    const whatsappNumber =
+      String(x.phone || '')
+        .replace(/\D/g, '');
+
+    const callLink =
+      x.phone
+        ? `tel:${esc(String(x.phone).replace(/[^\d+]/g, ''))}`
+        : '#';
+
+    const whatsappLink =
+      whatsappNumber.length >= 10
+        ? `https://wa.me/${whatsappNumber}`
+        : '#';
+
+    const emailLink =
+      x.email
+        ? `mailto:${esc(x.email)}`
+        : '#';
+
+    const status =
+      x.status || 'New';
+
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+      <td>
+        ${esc(new Date(x.created_at).toLocaleString())}
+      </td>
+
+      <td>
+        ${esc(x.type)}
+      </td>
+
+      <td>
+        <b>${esc(x.name)}</b><br>
+        <span>${esc(x.company || '')}</span>
+      </td>
+
+      <td>
+        ${esc(x.phone)}
+      </td>
+
+      <td>
+        ${
+          x.email
+            ? `<a href="${emailLink}">${esc(x.email)}</a>`
+            : '-'
+        }
+      </td>
+
+      <td>
+        ${esc(x.subject)}
+      </td>
+
+      <td>
+        ${esc(x.location)}
+      </td>
+
+      <td>
+        ${esc(x.instrument || '-')}
+      </td>
+
+      <td style="min-width:260px">
+        ${esc(x.message)}
+      </td>
+
+      <td>
+        <select
+          class="status-select status-change"
+          data-id="${esc(x.id)}"
+          data-current="${esc(status)}"
+        >
+          <option value="New" ${
+            status === 'New' ? 'selected' : ''
+          }>
+            New
+          </option>
+
+          <option value="In Progress" ${
+            status === 'In Progress' ? 'selected' : ''
+          }>
+            In Progress
+          </option>
+
+          <option value="Completed" ${
+            status === 'Completed' ? 'selected' : ''
+          }>
+            Completed
+          </option>
+
+          <option value="Closed" ${
+            status === 'Closed' ? 'selected' : ''
+          }>
+            Closed
+          </option>
+        </select>
+
+        <span class="status-note"></span>
+      </td>
+
+      <td>
+        ${attachmentHtml}
+      </td>
+
+      <td style="min-width:180px">
+
+        ${
+          x.phone
+            ? `<a
+                class="admin-action"
+                href="${callLink}"
+              >Call</a>`
+            : ''
+        }
+
+        ${
+          whatsappNumber.length >= 10
+            ? `<a
+                class="admin-action"
+                href="${whatsappLink}"
+                target="_blank"
+                rel="noopener"
+              >WhatsApp</a>`
+            : ''
+        }
+
+        ${
+          x.email
+            ? `<a
+                class="admin-action"
+                href="${emailLink}"
+              >Email</a>`
+            : ''
+        }
+
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  }
+
+  $('requestCount').textContent =
+    `Showing ${rows.length} of ${allRows.length} request(s).`;
+
+  attachRowEvents();
+}
+
+function attachRowEvents() {
+
+  document
+    .querySelectorAll('.attachment-view')
+    .forEach((button) => {
+
+      button.addEventListener('click', async () => {
+
+        const oldText = button.textContent;
+
+        button.textContent = 'Opening...';
+        button.disabled = true;
+
+        try {
+
+          const path = button.dataset.path;
+
+          const url = await createSignedUrl(path);
+
+          window.open(url, '_blank', 'noopener');
+
+        } catch (error) {
+
+          alert(
+            error.message ||
+            'Could not open attachment'
+          );
+
+        } finally {
+
+          button.textContent = oldText;
+          button.disabled = false;
+        }
+
+      });
+
+    });
+
+  document
+    .querySelectorAll('.status-change')
+    .forEach((select) => {
+
+      select.addEventListener('change', async () => {
+
+        const id = select.dataset.id;
+        const newStatus = select.value;
+        const note =
+          select.parentElement.querySelector('.status-note');
+
+        select.disabled = true;
+        note.textContent = 'Saving...';
+
+        try {
+
+          const response = await fetch(
+            `${c.SUPABASE_URL}/rest/v1/enquiries?id=eq.${encodeURIComponent(id)}`,
+            {
+              method: 'PATCH',
+              headers: {
+                apikey: c.SUPABASE_ANON_KEY,
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'Prefer': 'return=minimal'
+              },
+              body: JSON.stringify({
+                status: newStatus
+              })
+            }
+          );
+
+          if (!response.ok) {
+
+            const errorText =
+              await response.text();
+
+            throw new Error(
+              errorText ||
+              'Could not update status'
+            );
+          }
+
+          const row = allRows.find(
+            (item) => String(item.id) === String(id)
+          );
+
+          if (row) {
+            row.status = newStatus;
+          }
+
+          note.textContent = 'Saved';
+
+          setTimeout(() => {
+            note.textContent = '';
+          }, 1500);
+
+        } catch (error) {
+
+          note.textContent = 'Failed';
+
+          alert(
+            error.message ||
+            'Could not update status'
+          );
+
+        } finally {
+
+          select.disabled = false;
+        }
+
+      });
+
+    });
+}
+
 async function load() {
-  const status = $('loginStatus');
+
+  const statusBox = $('loginStatus');
   const refresh = $('refresh');
 
   if (!token) {
-    status.textContent = 'Please login first.';
+
+    statusBox.textContent =
+      'Please login first.';
+
     return;
   }
 
@@ -64,6 +421,7 @@ async function load() {
   refresh.textContent = 'Loading...';
 
   try {
+
     const response = await fetch(
       `${c.SUPABASE_URL}/rest/v1/enquiries?select=*&order=created_at.desc`,
       {
@@ -77,108 +435,54 @@ async function load() {
     const rows = await response.json();
 
     if (!response.ok) {
-      throw new Error(rows.message || rows.error || 'Could not load enquiries');
+
+      throw new Error(
+        rows.message ||
+        rows.error ||
+        'Could not load enquiries'
+      );
     }
 
-    const tbody = document.querySelector('#table tbody');
-    tbody.innerHTML = '';
+    allRows = rows || [];
 
-    for (const x of (rows || [])) {
-      let attachmentHtml = '<span style="color:#777">None</span>';
+    renderRows(
+      getFilteredRows()
+    );
 
-      if (x.attachment_path) {
-        attachmentHtml = `
-          <button
-            type="button"
-            class="attachment-view"
-            data-path="${esc(x.attachment_path)}"
-            style="padding:7px 10px;border:1px solid #0b355c;border-radius:6px;background:#fff;color:#0b355c;cursor:pointer;"
-          >
-            View / Download
-          </button>
-        `;
-      }
-
-      const tr = document.createElement('tr');
-
-      tr.innerHTML = `
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${esc(new Date(x.created_at).toLocaleString())}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${esc(x.type)}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          <b>${esc(x.name)}</b><br>
-          ${esc(x.company || '')}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${esc(x.phone)}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${esc(x.subject)}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${esc(x.location)}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${esc(x.message)}
-        </td>
-
-        <td style="padding:12px;border-top:1px solid #ddd">
-          ${attachmentHtml}
-        </td>
-      `;
-
-      tbody.appendChild(tr);
-    }
-
-    document.querySelectorAll('.attachment-view').forEach((button) => {
-      button.addEventListener('click', async () => {
-        const oldText = button.textContent;
-        button.textContent = 'Opening...';
-        button.disabled = true;
-
-        try {
-          const path = button.dataset.path;
-          const url = await createSignedUrl(path);
-          window.open(url, '_blank', 'noopener');
-        } catch (error) {
-          alert(error.message || 'Could not open attachment');
-        } finally {
-          button.textContent = oldText;
-          button.disabled = false;
-        }
-      });
-    });
-
-    status.textContent = `Loaded ${rows.length} customer request(s).`;
+    statusBox.textContent =
+      `Loaded ${allRows.length} customer request(s).`;
 
   } catch (error) {
-    status.textContent = `Could not load enquiries: ${error.message}`;
+
+    statusBox.textContent =
+      `Could not load enquiries: ${error.message}`;
+
   } finally {
+
     refresh.disabled = false;
     refresh.textContent = 'Refresh';
   }
 }
 
 $('login').onclick = async () => {
-  const status = $('loginStatus');
 
-  status.textContent = 'Checking...';
+  const statusBox = $('loginStatus');
 
-  if (!c.SUPABASE_URL || !c.SUPABASE_ANON_KEY) {
-    status.textContent = 'Supabase URL/key is missing from config.js.';
+  statusBox.textContent = 'Checking...';
+
+  if (
+    !c.SUPABASE_URL ||
+    !c.SUPABASE_ANON_KEY
+  ) {
+
+    statusBox.textContent =
+      'Supabase URL/key is missing from config.js.';
+
     return;
   }
 
   try {
+
     const response = await fetch(
       `${c.SUPABASE_URL}/auth/v1/token?grant_type=password`,
       {
@@ -197,25 +501,60 @@ $('login').onclick = async () => {
     const data = await response.json();
 
     if (!response.ok) {
-      status.textContent =
+
+      statusBox.textContent =
         data.msg ||
         data.error_description ||
         data.message ||
         'Login failed';
+
       return;
     }
 
     token = data.access_token;
 
-    status.textContent = 'Logged in.';
+    statusBox.textContent =
+      'Logged in.';
 
-    $('panel').style.display = 'block';
+    $('panel').style.display =
+      'block';
 
     await load();
 
   } catch (error) {
-    status.textContent = `Login error: ${error.message}`;
+
+    statusBox.textContent =
+      `Login error: ${error.message}`;
   }
 };
 
 $('refresh').onclick = load;
+
+$('search').addEventListener(
+  'input',
+  () => renderRows(getFilteredRows())
+);
+
+$('typeFilter').addEventListener(
+  'change',
+  () => renderRows(getFilteredRows())
+);
+
+$('statusFilter').addEventListener(
+  'change',
+  () => renderRows(getFilteredRows())
+);
+
+$('clearFilters').addEventListener(
+  'click',
+  () => {
+
+    $('search').value = '';
+    $('typeFilter').value = '';
+    $('statusFilter').value = '';
+
+    renderRows(
+      getFilteredRows()
+    );
+  }
+);
