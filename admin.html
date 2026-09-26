@@ -178,43 +178,56 @@
       <!-- FILTERS -->
       <div class="admin-toolbar">
 
-        <label>
-          Search
-          <input
-            id="search"
-            type="search"
-            placeholder="Customer, company, phone, product..."
-          >
-        </label>
+  <label>
+    Search
+    <input
+      id="search"
+      type="search"
+      placeholder="Customer, company, phone, email, product..."
+    >
+  </label>
 
-        <label>
-          Type
-          <select id="typeFilter">
-            <option value="">All types</option>
-            <option value="product">Product</option>
-            <option value="service">Service</option>
-          </select>
-        </label>
+  <label>
+    Type
+    <select id="typeFilter">
+      <option value="">All types</option>
+      <option value="product">Product</option>
+      <option value="service">Service</option>
+    </select>
+  </label>
 
-        <label>
-          Status
-          <select id="statusFilter">
-            <option value="">All statuses</option>
-            <option value="New">New</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-            <option value="Closed">Closed</option>
-          </select>
-        </label>
+  <label>
+    Status
+    <select id="statusFilter">
+      <option value="">All statuses</option>
+      <option value="New">New</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+      <option value="Closed">Closed</option>
+    </select>
+  </label>
 
-        <div>
-          <button class="btn outline" id="clearFilters" type="button">
-            Clear
-          </button>
-        </div>
+  <div style="display:flex;gap:8px;align-items:end">
 
-      </div>
+    <button
+      class="btn primary"
+      id="applyFilters"
+      type="button"
+    >
+      Apply Filters
+    </button>
 
+    <button
+      class="btn outline"
+      id="clearFilters"
+      type="button"
+    >
+      Clear
+    </button>
+
+  </div>
+
+</div>
       <div class="request-count" id="requestCount">
         No requests loaded.
       </div>
