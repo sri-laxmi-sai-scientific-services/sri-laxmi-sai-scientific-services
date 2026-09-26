@@ -32,18 +32,25 @@ async function createSignedUrl(path) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || data.error || 'Could not create attachment link');
+    throw new Error(
+      data.message || data.error || 'Could not create attachment link'
+    );
   }
 
   if (!data.signedURL) {
     throw new Error('Signed URL was not returned');
   }
 
-  return data.signedURL.startsWith('http')
-    ? data.signedURL
-    : `${c.SUPABASE_URL}${data.signedURL}`;
-}
+  if (data.signedURL.startsWith('http')) {
+    return data.signedURL;
+  }
 
+  if (data.signedURL.startsWith('/storage/v1/')) {
+    return `${c.SUPABASE_URL}${data.signedURL}`;
+  }
+
+  return `${c.SUPABASE_URL}/storage/v1${data.signedURL}`;
+}
 async function load() {
   const status = $('loginStatus');
   const refresh = $('refresh');
