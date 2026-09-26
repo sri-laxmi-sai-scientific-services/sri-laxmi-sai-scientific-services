@@ -530,19 +530,13 @@ $('login').onclick = async () => {
 
 $('refresh').onclick = load;
 
-$('search').addEventListener(
-  'input',
-  () => renderRows(getFilteredRows())
-);
+function applyFilters() {
+  renderRows(getFilteredRows());
+}
 
-$('typeFilter').addEventListener(
-  'change',
-  () => renderRows(getFilteredRows())
-);
-
-$('statusFilter').addEventListener(
-  'change',
-  () => renderRows(getFilteredRows())
+$('applyFilters').addEventListener(
+  'click',
+  applyFilters
 );
 
 $('clearFilters').addEventListener(
@@ -553,8 +547,16 @@ $('clearFilters').addEventListener(
     $('typeFilter').value = '';
     $('statusFilter').value = '';
 
-    renderRows(
-      getFilteredRows()
-    );
+    renderRows(allRows);
+  }
+);
+
+$('search').addEventListener(
+  'keydown',
+  (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      applyFilters();
+    }
   }
 );
