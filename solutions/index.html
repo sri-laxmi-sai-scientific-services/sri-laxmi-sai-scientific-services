@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>
+    Solutions | Sri Laxmi Sai Scientific Services
+  </title>
+
+  <meta
+    name="description"
+    content="Smart water-management, groundwater monitoring, water metering, water quality, automation and digital water solutions from Sri Laxmi Sai Scientific Services."
+  >
+
+  <meta
+    name="keywords"
+    content="Aquasense, groundwater monitoring, DWLR, ultrasonic water meter, water quality sensors, water automation, smart water management, IoT water solutions"
+  >
+
+  <link
+    rel="icon"
+    href="../logo.png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+
+  <style>
+
+    .page-hero{
+      padding:75px 0;
+      background:linear-gradient(135deg,#eef8fa,#ffffff);
+      border-bottom:1px solid #dfe9ef;
+    }
+
+    .page-hero h1{
+      color:var(--navy);
+      margin:10px 0 15px;
+      font-size:clamp(40px,5vw,64px);
+    }
+
+    .page-hero p{
+      max-width:850px;
+      color:#60758b;
+      font-size:19px;
+      line-height:1.7;
+    }
+
+    .solutions-section{
+      padding:75px 0;
+    }
+
+    .intro-box{
+      padding:28px;
+      margin-bottom:45px;
+      background:#eef8fa;
+      border:1px solid #d8edf0;
+      border-radius:16px;
+    }
+
+    .intro-box h2{
+      color:var(--navy);
+      margin-top:0;
+    }
+
+    .intro-box p{
+      color:#61758a;
+      line-height:1.7;
+    }
+
+    .solution-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .solution-card{
+      padding:28px;
+      background:#fff;
+      border:1px solid #dce7ee;
+      border-radius:16px;
+      box-shadow:0 10px 28px rgba(10,50,80,.05);
+    }
+
+    .solution-number{
+      width:42px;
+      height:42px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:#082a4d;
+      color:#fff;
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .solution-card h3{
+      color:var(--navy);
+      margin:0 0 12px;
+      font-size:22px;
+    }
+
+    .solution-card p{
+      color:#63778c;
+      line-height:1.65;
+    }
+
+    .solution-card a{
+      display:inline-block;
+      margin-top:10px;
+      color:#0b72b5;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .application-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      margin-top:35px;
+    }
+
+    .application-card{
+      padding:25px;
+      background:#f5f9fb;
+      border:1px solid #dce7ee;
+      border-radius:15px;
+    }
+
+    .application-card h3{
+      color:var(--navy);
+      margin-top:0;
+    }
+
+    .application-card p{
+      color:#62778c;
+      line-height:1.65;
+    }
+
+    .partner-box{
+      margin-top:55px;
+      padding:35px;
+      border-radius:18px;
+      background:#082a4d;
+      color:#fff;
+    }
+
+    .partner-box h2{
+      color:#fff;
+      margin-top:0;
+    }
+
+    .partner-box p{
+      line-height:1.7;
+      opacity:.92;
+    }
+
+    .partner-box a{
+      text-decoration:none;
+    }
+
+    .cta-box{
+      margin-top:30px;
+      padding:30px;
+      background:#f5f9fb;
+      border:1px solid #dce7ee;
+      border-radius:16px;
+    }
+
+    .cta-box h2{
+      color:var(--navy);
+      margin-top:0;
+    }
+
+    .cta-box p{
+      color:#62778c;
+      line-height:1.7;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#e8f5f7;
+      color:#0b6680;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:950px){
+
+      .solution-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+    }
+
+    @media(max-width:650px){
+
+      .solution-grid,
+      .application-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a
+      class="brand"
+      href="../index.html"
+    >
+
+      <img
+        src="../logo.png"
+        alt="Sri Laxmi Sai Scientific Services logo"
+      >
+
+      <span>
+
+        <b>SRI LAXMI SAI</b>
+
+        <strong>SCIENTIFIC SERVICES</strong>
+
+        <small>
+          GROUNDWATER • HYDROGEOLOGY • WATER MANAGEMENT
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open menu"
+    >
+      ☰
+    </button>
+
+
+    <nav id="mainNav">
+
+      <a href="../index.html">
+        Home
+      </a>
+
+      <a href="../about.html">
+        About
+      </a>
+
+      <a href="../products/index.html">
+        Products
+      </a>
+
+      <a href="index.html">
+        Solutions
+      </a>
+
+      <a href="../services/index.html">
+        Services
+      </a>
+
+      <a href="../resources/index.html">
+        Resources
+      </a>
+
+      <a href="../contact.html">
+        Contact
+      </a>
+
+      <a
+        class="nav-cta"
+        href="../contact.html"
+      >
+        Request a Quote
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="page-hero">
+
+  <div class="container">
+
+    <span class="badge">
+      Smart Water Solutions
+    </span>
+
+    <h1>
+      Digital & Intelligent Water Solutions
+    </h1>
+
+    <p>
+      Solutions for groundwater monitoring,
+      smart water metering, water quality,
+      automation, compliance and digital
+      water-management applications.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- INTRO -->
+
+<section class="solutions-section">
+
+  <div class="container">
+
+
+    <div class="intro-box">
+
+      <h2>
+        Connected solutions for water management
+      </h2>
+
+      <p>
+        Our solutions portfolio brings together
+        digital monitoring, smart metering,
+        water-quality monitoring and
+        automation-oriented technologies for
+        suitable water-management applications.
+      </p>
+
+      <p>
+        The solution categories below are based
+        on the Aquasense product and solution
+        material supplied to us. Detailed
+        product specifications will be presented
+        on the relevant product or solution pages.
+      </p>
+
+    </div>
+
+
+
+    <!-- AQUASENSE SOLUTIONS -->
+
+    <span class="badge">
+      Aquasense Solutions
+    </span>
+
+    <h2 style="color:var(--navy);margin:10px 0 12px">
+      Water technology & IoT solutions
+    </h2>
+
+    <p style="max-width:850px;color:#61758a;line-height:1.7">
+      Explore the main solution categories represented
+      in the supplied Aquasense material.
+    </p>
+
+
+    <div class="solution-grid">
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          01
+        </div>
+
+        <h3>
+          Digital Level Recorder (DWLR)
+        </h3>
+
+        <p>
+          Digital groundwater and water-level
+          monitoring solutions for applications
+          requiring automated recording and
+          connected monitoring.
+        </p>
+
+        <a href="../products/index.html">
+          View related products →
+        </a>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          02
+        </div>
+
+        <h3>
+          Ultrasonic Water Meter
+        </h3>
+
+        <p>
+          Smart ultrasonic water-metering
+          solutions for suitable water
+          measurement and monitoring
+          applications.
+        </p>
+
+        <a href="../products/index.html">
+          View products →
+        </a>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          03
+        </div>
+
+        <h3>
+          Domestic Metering
+        </h3>
+
+        <p>
+          Water-metering solutions designed
+          for domestic and residential
+          applications.
+        </p>
+
+        <a href="../products/index.html">
+          View products →
+        </a>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          04
+        </div>
+
+        <h3>
+          Electromagnetic Water Flowmeter
+        </h3>
+
+        <p>
+          Electromagnetic flow-measurement
+          solutions for appropriate industrial
+          and water-management applications.
+        </p>
+
+        <a href="../products/index.html">
+          View products →
+        </a>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          05
+        </div>
+
+        <h3>
+          Water Quality Sensors
+        </h3>
+
+        <p>
+          Sensor-based solutions for
+          monitoring suitable water-quality
+          parameters.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          06
+        </div>
+
+        <h3>
+          ATBC Self-Compliance
+        </h3>
+
+        <p>
+          Solution category for self-compliance
+          and water-management monitoring
+          requirements.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          07
+        </div>
+
+        <h3>
+          AquaTank
+        </h3>
+
+        <p>
+          Digital water-management and tank
+          automation-oriented solution for
+          suitable applications.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          08
+        </div>
+
+        <h3>
+          AquaCharge
+        </h3>
+
+        <p>
+          Smart water-management solution
+          associated with charging and
+          water-resource management.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          09
+        </div>
+
+        <h3>
+          AquaTreat
+        </h3>
+
+        <p>
+          Solution category focused on
+          water-treatment and associated
+          monitoring requirements.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          10
+        </div>
+
+        <h3>
+          AquaMine
+        </h3>
+
+        <p>
+          Water-management and monitoring
+          solution category for mining-related
+          applications.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          11
+        </div>
+
+        <h3>
+          Fire Fighting Digital Twin
+        </h3>
+
+        <p>
+          Digital solution category for
+          monitoring and managing fire-fighting
+          water infrastructure.
+        </p>
+
+      </article>
+
+
+
+      <article class="solution-card">
+
+        <div class="solution-number">
+          12
+        </div>
+
+        <h3>
+          Source-to-Sink Water Intelligence
+        </h3>
+
+        <p>
+          Digital water-management approach
+          covering water information across
+          the source-to-sink lifecycle.
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- APPLICATION AREAS -->
+
+    <div style="margin-top:75px">
+
+      <span class="badge">
+        Applications
+      </span>
+
+      <h2 style="color:var(--navy);margin:10px 0 12px">
+        Where these solutions can support water management
+      </h2>
+
+      <p style="max-width:850px;color:#61758a;line-height:1.7">
+        Solution selection should always be based
+        on the actual application, site conditions,
+        technical requirements and applicable
+        product specifications.
+      </p>
+
+
+      <div class="application-grid">
+
+
+        <div class="application-card">
+
+          <h3>
+            Groundwater Monitoring
+          </h3>
+
+          <p>
+            Water-level measurement, digital
+            recording, telemetry and groundwater
+            observation applications.
+          </p>
+
+        </div>
+
+
+        <div class="application-card">
+
+          <h3>
+            Smart Water Metering
+          </h3>
+
+          <p>
+            Digital water measurement,
+            consumption monitoring and
+            connected metering applications.
+          </p>
+
+        </div>
+
+
+        <div class="application-card">
+
+          <h3>
+            Industrial Water Management
+          </h3>
+
+          <p>
+            Flow measurement, monitoring,
+            water-quality and operational
+            visibility for suitable facilities.
+          </p>
+
+        </div>
+
+
+        <div class="application-card">
+
+          <h3>
+            Water Infrastructure
+          </h3>
+
+          <p>
+            Tank, pump, fire-fighting and other
+            infrastructure-related monitoring
+            and automation applications.
+          </p>
+
+        </div>
+
+
+        <div class="application-card">
+
+          <h3>
+            Water Quality
+          </h3>
+
+          <p>
+            Sensor-oriented monitoring for
+            applicable water-quality
+            parameters and field conditions.
+          </p>
+
+        </div>
+
+
+        <div class="application-card">
+
+          <h3>
+            Compliance & Monitoring
+          </h3>
+
+          <p>
+            Digital information and monitoring
+            solutions supporting applicable
+            water-management requirements.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PARTNERSHIP -->
+
+    <div class="partner-box">
+
+      <span
+        class="badge"
+        style="
+          background:rgba(255,255,255,.12);
+          color:#fff;
+        "
+      >
+        Authorization
+      </span>
+
+      <h2>
+        Aquasense Authorized Channel Partner
+      </h2>
+
+      <p>
+        Sri Laxmi Sai Scientific Services has
+        been appointed as an Authorized Channel
+        Partner for Aquasense products and IoT
+        Solutions in Uppal, Hyderabad, Telangana.
+      </p>
+
+      <p>
+        The current certificate supplied to us is
+        dated 23 September 2026.
+      </p>
+
+      <a
+        href="../resources/index.html"
+        class="btn"
+        style="
+          background:#fff;
+          color:#082a4d;
+        "
+      >
+        View Authorization
+      </a>
+
+    </div>
+
+
+
+    <!-- CTA -->
+
+    <div class="cta-box">
+
+      <h2>
+        Need help choosing a solution?
+      </h2>
+
+      <p>
+        Tell us about your site, application,
+        pipe size, groundwater requirement,
+        water-management objective or
+        monitoring requirement. We can review
+        the requirement and provide suitable
+        product information and quotation
+        support.
+      </p>
+
+      <a
+        href="../contact.html"
+        class="btn primary"
+      >
+        Discuss Your Requirement
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+  <div class="container footer-grid">
+
+
+    <div>
+
+      <b>
+        SRI LAXMI SAI SCIENTIFIC SERVICES
+      </b>
+
+      <p>
+        Groundwater • Hydrogeology •
+        Water Management • Scientific Services
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <a href="../index.html">
+        Home
+      </a>
+
+      <a href="../about.html">
+        About
+      </a>
+
+      <a href="../products/index.html">
+        Products
+      </a>
+
+      <a href="index.html">
+        Solutions
+      </a>
+
+      <a href="../services/index.html">
+        Services
+      </a>
+
+      <a href="../resources/index.html">
+        Resources
+      </a>
+
+      <a href="../contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <a href="tel:+919290925253">
+        +91 92909 25253
+      </a>
+
+      <a href="tel:+918465089044">
+        +91 84650 89044
+      </a>
+
+      <a href="mailto:saiscientific.dhaara@gmail.com">
+        saiscientific.dhaara@gmail.com
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="copyright">
+
+    ©
+    <span id="year"></span>
+    Sri Laxmi Sai Scientific Services.
+    All rights reserved.
+
+  </div>
+
+</footer>
+
+
+
+<script>
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+
+  const menu =
+    document.getElementById('menuBtn');
+
+
+  const nav =
+    document.getElementById('mainNav');
+
+
+  menu?.addEventListener(
+    'click',
+    () => {
+      nav?.classList.toggle('open');
+    }
+  );
+
+</script>
+
+
+</body>
+</html>
