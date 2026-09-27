@@ -228,6 +228,48 @@
 
     }
 
+ /* SERVICE PAGE LAYOUT FIX */
+.service-grid{
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+}
+
+.service-grid > *{
+  min-width:0;
+}
+
+.info-card{
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+
+.info-item{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.info-item strong,
+.info-item span{
+  display:block;
+  width:100%;
+  max-width:none;
+  box-sizing:border-box;
+  white-space:normal;
+  overflow-wrap:break-word;
+}
+
+.info-item span{
+  color:#62768b;
+  line-height:1.6;
+}
+
+@media(max-width:850px){
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+}
+
   </style>
 
 </head>
