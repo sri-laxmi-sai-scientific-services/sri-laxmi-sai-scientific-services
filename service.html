@@ -48,7 +48,7 @@
       padding:75px 0;
     }
 
-    .service-grid{
+    .request-grid{
       display:grid;
       grid-template-columns:1.15fr .85fr;
       gap:25px;
@@ -208,7 +208,7 @@
 
     @media(max-width:850px){
 
-      .service-grid{
+      .request-grid{
         grid-template-columns:1fr;
       }
 
@@ -228,102 +228,198 @@
 
     }
 
- /* SERVICE PAGE LAYOUT FIX */
-.service-grid{
-  width:100%;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:30px;
-  align-items:start;
-}
 
-.service-grid > *{
-  min-width:0;
-  max-width:100%;
-}
+    /* FINAL SERVICE REQUEST PAGE FIX */
 
-.form-card-new,
-.info-card{
-  width:100%;
-  min-width:0;
-  max-width:100%;
-  box-sizing:border-box;
-}
+    body{
+      overflow-x:hidden;
+    }
 
-.form-card-new label{
-  width:100%;
-  min-width:0;
-  box-sizing:border-box;
-}
+    .site-header nav{
+      gap:18px;
+      font-size:13px;
+    }
 
-.info-card{
-  overflow:hidden;
-}
+    .site-header .nav-cta{
+      padding:11px 15px;
+      white-space:nowrap;
+    }
 
-.info-card h2{
-  font-size:clamp(32px,3vw,46px);
-  line-height:1.2;
-  word-break:normal;
-  overflow-wrap:normal;
-}
+    .request-grid{
+      width:100%;
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+      gap:30px;
+      align-items:start;
+      box-sizing:border-box;
+    }
 
-.info-card p{
-  max-width:100%;
-  line-height:1.7;
-}
+    .request-grid > *{
+      min-width:0;
+      max-width:100%;
+    }
 
-.info-item{
-  width:100%;
-  min-width:0;
-  box-sizing:border-box;
-}
+    .request-grid .form-card-new,
+    .request-grid .info-card{
+      width:100%;
+      min-width:0;
+      max-width:100%;
+      box-sizing:border-box;
+    }
 
-.info-item strong{
-  display:block;
-  margin-bottom:8px;
-}
+    .request-grid .info-card{
+      overflow:hidden;
+    }
 
-.info-item span{
-  display:block;
-  width:100%;
-  max-width:100%;
-  color:#62768b;
-  line-height:1.6;
-  white-space:normal;
-  overflow-wrap:break-word;
-  word-break:normal;
-}
+    .request-grid .info-card h2{
+      display:block;
+      width:100%;
+      max-width:100%;
+      margin:20px 0;
+      font-size:clamp(32px,3vw,46px);
+      line-height:1.2;
+      color:var(--navy);
+      white-space:normal;
+      word-break:normal;
+      overflow-wrap:normal;
+    }
 
-.file-note{
-  display:block;
-  width:100%;
-  max-width:100%;
-  margin-top:7px;
-  color:#718398;
-  font-size:13px;
-  font-weight:500;
-  line-height:1.5;
-  white-space:normal;
-  overflow-wrap:normal;
-}
+    .request-grid .info-card > p{
+      display:block;
+      width:100%;
+      max-width:100%;
+      color:#62768b;
+      line-height:1.7;
+      white-space:normal;
+      word-break:normal;
+      overflow-wrap:break-word;
+    }
 
-@media(max-width:850px){
-  .service-grid{
-    grid-template-columns:1fr;
-  }
-}
+    .request-grid .info-item{
+      display:block;
+      width:100%;
+      min-width:0;
+      max-width:100%;
+      box-sizing:border-box;
+    }
 
-@media(max-width:600px){
-  .form-card-new,
-  .info-card,
-  .help-box{
-    padding:24px;
-  }
+    .request-grid .info-item strong{
+      display:block;
+      width:100%;
+      max-width:100%;
+      margin-bottom:8px;
+      color:var(--navy);
+      white-space:normal;
+      word-break:normal;
+      overflow-wrap:normal;
+    }
 
-  .two-col{
-    grid-template-columns:1fr;
-  }
-}
+    .request-grid .info-item span{
+      display:block;
+      width:100%;
+      max-width:100%;
+      height:auto;
+      min-height:0;
+      padding:0;
+      color:#62768b;
+      line-height:1.6;
+      white-space:normal;
+      word-break:normal;
+      overflow-wrap:break-word;
+    }
+
+    .request-grid .file-note{
+      display:block;
+      width:100%;
+      max-width:100%;
+      height:auto;
+      min-height:0;
+      padding:0;
+      margin-top:7px;
+      color:#718398;
+      font-size:13px;
+      font-weight:500;
+      line-height:1.5;
+      white-space:normal;
+      word-break:normal;
+      overflow-wrap:normal;
+    }
+
+    .request-grid .badge{
+      display:inline-block;
+      width:auto;
+      height:auto;
+      min-height:0;
+      padding:7px 11px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .request-grid .form-card-new input[type="file"]{
+      width:100%;
+      box-sizing:border-box;
+    }
+
+    .help-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .help-actions .btn{
+      white-space:normal;
+    }
+
+    @media(max-width:1100px){
+      .site-header nav{
+        gap:11px;
+        font-size:12px;
+      }
+
+      .site-header .nav-cta{
+        padding:10px 12px;
+      }
+    }
+
+    @media(max-width:900px){
+      .request-grid{
+        grid-template-columns:1fr;
+      }
+
+      .site-header nav{
+        gap:0;
+        font-size:14px;
+      }
+    }
+
+    @media(max-width:600px){
+      .request-grid{
+        gap:20px;
+      }
+
+      .request-grid .form-card-new,
+      .request-grid .info-card{
+        padding:24px;
+      }
+
+      .request-grid .info-card h2{
+        font-size:32px;
+      }
+
+      .request-grid .two-col{
+        grid-template-columns:1fr;
+      }
+
+      .help-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .help-actions .btn{
+        width:100%;
+      }
+    }
 
   </style>
 
@@ -457,7 +553,7 @@
   <div class="container">
 
 
-    <div class="service-grid">
+    <div class="request-grid">
 
 
       <!-- FORM -->
@@ -929,8 +1025,20 @@
         Resources
       </a>
 
+      <a href="customers.html">
+        Customers
+      </a>
+
       <a href="contact.html">
         Contact
+      </a>
+
+      <a href="enquiry.html">
+        Product Enquiry
+      </a>
+
+      <a href="service.html">
+        Service / Repair Request
       </a>
 
     </div>
