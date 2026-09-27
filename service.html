@@ -230,42 +230,97 @@
 
  /* SERVICE PAGE LAYOUT FIX */
 .service-grid{
-  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:30px;
+  align-items:start;
 }
 
 .service-grid > *{
   min-width:0;
+  max-width:100%;
 }
 
+.form-card-new,
 .info-card{
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.form-card-new label{
   width:100%;
   min-width:0;
   box-sizing:border-box;
 }
 
+.info-card{
+  overflow:hidden;
+}
+
+.info-card h2{
+  font-size:clamp(32px,3vw,46px);
+  line-height:1.2;
+  word-break:normal;
+  overflow-wrap:normal;
+}
+
+.info-card p{
+  max-width:100%;
+  line-height:1.7;
+}
+
 .info-item{
-  display:block;
   width:100%;
+  min-width:0;
   box-sizing:border-box;
 }
 
-.info-item strong,
-.info-item span{
+.info-item strong{
   display:block;
-  width:100%;
-  max-width:none;
-  box-sizing:border-box;
-  white-space:normal;
-  overflow-wrap:break-word;
+  margin-bottom:8px;
 }
 
 .info-item span{
+  display:block;
+  width:100%;
+  max-width:100%;
   color:#62768b;
   line-height:1.6;
+  white-space:normal;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
+.file-note{
+  display:block;
+  width:100%;
+  max-width:100%;
+  margin-top:7px;
+  color:#718398;
+  font-size:13px;
+  font-weight:500;
+  line-height:1.5;
+  white-space:normal;
+  overflow-wrap:normal;
 }
 
 @media(max-width:850px){
   .service-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .form-card-new,
+  .info-card,
+  .help-box{
+    padding:24px;
+  }
+
+  .two-col{
     grid-template-columns:1fr;
   }
 }
@@ -320,40 +375,47 @@
     <nav id="mainNav">
 
       <a href="index.html">
-        Home
-      </a>
+  Home
+</a>
 
-      <a href="about.html">
-        About
-      </a>
+<a href="about.html">
+  About
+</a>
 
-      <a href="products/index.html">
-        Products
-      </a>
+<a href="products/index.html">
+  Products
+</a>
 
-      <a href="solutions/index.html">
-        Solutions
-      </a>
+<a href="solutions/index.html">
+  Solutions
+</a>
 
-      <a href="services/index.html">
-        Services
-      </a>
+<a href="services/index.html">
+  Services
+</a>
 
-      <a href="resources/index.html">
-        Resources
-      </a>
+<a href="resources/index.html">
+  Resources
+</a>
 
-      <a href="contact.html">
-        Contact
-      </a>
+<a href="customers.html">
+  Customers
+</a>
 
-      <a
-        class="nav-cta"
-        href="contact.html"
-      >
-        Contact Us
-      </a>
+<a href="contact.html">
+  Contact
+</a>
 
+<a href="enquiry.html">
+  Product Enquiry
+</a>
+
+<a
+  class="nav-cta"
+  href="service.html"
+>
+  Service / Repair Request
+</a>
     </nav>
 
   </div>
@@ -774,13 +836,20 @@
 
 
         <a
-          href="tel:+919290925253"
-          class="btn"
-          style="background:#fff;color:#082a4d"
-        >
-          Call Us
-        </a>
+  href="tel:+919290925253"
+  class="btn"
+  style="background:#fff;color:#082a4d"
+>
+  Call: +91 92909 25253
+</a>
 
+<a
+  href="tel:+918465089044"
+  class="btn"
+  style="background:#fff;color:#082a4d"
+>
+  Call: +91 84650 89044
+</a>
 
         <a
           href="https://wa.me/919290925253"
@@ -869,16 +938,19 @@
 
     <div>
 
-      <a href="tel:+919290925253">
-        +91 92909 25253
-      </a>
+  <a href="tel:+919290925253">
+    +91 92909 25253
+  </a>
 
-      <a href="mailto:saiscientific.dhaara@gmail.com">
-        saiscientific.dhaara@gmail.com
-      </a>
+  <a href="tel:+918465089044">
+    +91 84650 89044
+  </a>
 
-    </div>
+  <a href="mailto:saiscientific.dhaara@gmail.com">
+    saiscientific.dhaara@gmail.com
+  </a>
 
+</div>
 
   </div>
 
