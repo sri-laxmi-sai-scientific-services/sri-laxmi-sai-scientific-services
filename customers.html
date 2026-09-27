@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>Customers | Sri Laxmi Sai Scientific Services</title>
+
+  <meta
+    name="description"
+    content="Selected customers and organizations served by Sri Laxmi Sai Scientific Services."
+  >
+
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .customers-hero{
+      padding:70px 20px 45px;
+      background:linear-gradient(180deg,#f4fbff 0%,#ffffff 100%);
+    }
+
+    .customers-wrap{
+      max-width:1180px;
+      margin:0 auto;
+    }
+
+    .customers-hero h1{
+      margin:0 0 14px;
+      font-size:clamp(2.2rem,5vw,4.2rem);
+      color:#082a4d;
+    }
+
+    .customers-hero p{
+      max-width:820px;
+      font-size:1.08rem;
+      line-height:1.8;
+      color:#42566b;
+      margin:0;
+    }
+
+    .customer-section{
+      padding:55px 20px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:35px;
+    }
+
+    .section-title h2{
+      margin:0 0 10px;
+      color:#082a4d;
+      font-size:clamp(1.8rem,4vw,2.7rem);
+    }
+
+    .section-title p{
+      margin:0 auto;
+      max-width:780px;
+      color:#617184;
+      line-height:1.7;
+    }
+
+    .selected-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .selected-card{
+      background:#fff;
+      border:1px solid #dfe9f1;
+      border-radius:16px;
+      padding:22px 18px;
+      min-height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      box-shadow:0 8px 24px rgba(8,42,77,.06);
+      font-weight:700;
+      color:#143b60;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+
+    .selected-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(8,42,77,.10);
+    }
+
+    .customer-tools{
+      max-width:900px;
+      margin:0 auto 30px;
+    }
+
+    .customer-search{
+      width:100%;
+      padding:16px 18px;
+      border:1px solid #cfdbe6;
+      border-radius:12px;
+      font-size:1rem;
+      box-sizing:border-box;
+      outline:none;
+    }
+
+    .customer-search:focus{
+      border-color:#1688c8;
+      box-shadow:0 0 0 3px rgba(22,136,200,.12);
+    }
+
+    .customer-count{
+      margin:12px 0 0;
+      color:#607488;
+      text-align:center;
+      font-size:.95rem;
+    }
+
+    .customer-list{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .customer-item{
+      background:#fff;
+      border:1px solid #e1e8ee;
+      border-radius:12px;
+      padding:16px 18px;
+      color:#213e5a;
+      line-height:1.45;
+    }
+
+    .customer-item strong{
+      color:#082a4d;
+    }
+
+    .no-results{
+      grid-column:1/-1;
+      text-align:center;
+      padding:35px;
+      color:#667788;
+    }
+
+    .customer-note{
+      margin-top:35px;
+      background:#f5fbff;
+      border-left:4px solid #1688c8;
+      padding:18px 20px;
+      border-radius:8px;
+      color:#40566b;
+      line-height:1.7;
+    }
+
+    @media (max-width:900px){
+      .selected-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .customer-list{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:600px){
+      .customers-hero{
+        padding:50px 16px 35px;
+      }
+
+      .customer-section{
+        padding:42px 16px;
+      }
+
+      .selected-grid,
+      .customer-list{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <img
+          src="logo.png"
+          alt="Sri Laxmi Sai Scientific Services logo"
+        >
+
+        <span>
+          <b>SRI LAXMI SAI</b>
+          <strong>SCIENTIFIC SERVICES</strong>
+          <small>GROUNDWATER • HYDROGEOLOGY • WATER MANAGEMENT</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+        type="button"
+      >
+        ☰
+      </button>
+
+      <nav id="mainNav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="products/index.html">
+          Products
+        </a>
+
+        <a href="solutions/index.html">
+          Solutions
+        </a>
+
+        <a href="services/index.html">
+          Services
+        </a>
+
+        <a href="resources/index.html">
+          Resources
+        </a>
+
+        <a href="customers.html">
+          Customers
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <a href="enquiry.html">
+          Product Enquiry
+        </a>
+
+        <a
+          class="nav-cta"
+          href="service.html"
+        >
+          Service / Repair Request
+        </a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="customers-hero">
+      <div class="customers-wrap">
+
+        <div class="section-kicker">
+          OUR CUSTOMERS
+        </div>
+
+        <h1>
+          Organizations We Have Served
+        </h1>
+
+        <p>
+          Sri Laxmi Sai Scientific Services has supported customers
+          across industrial, pharmaceutical, healthcare, education,
+          infrastructure, food, power, engineering and other sectors.
+          The organizations below are presented from our customer records.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="customer-section">
+      <div class="customers-wrap">
+
+        <div class="section-title">
+          <h2>Selected Customers</h2>
+
+          <p>
+            A selection of organizations from our recent customer records.
+          </p>
+        </div>
+
+        <div class="selected-grid">
+
+          <div class="selected-card">MRF Limited</div>
+
+          <div class="selected-card">Adani Group</div>
+
+          <div class="selected-card">HETERO Pharma</div>
+
+          <div class="selected-card">Gland Pharma</div>
+
+          <div class="selected-card">
+            Dr. Reddy's Laboratories
+          </div>
+
+          <div class="selected-card">Zuari Cement</div>
+
+          <div class="selected-card">
+            Pidilite Industries Limited
+          </div>
+
+          <div class="selected-card">Vimta Labs</div>
+
+          <div class="selected-card">
+            Granules India Limited
+          </div>
+
+          <div class="selected-card">ITC Limited</div>
+
+          <div class="selected-card">Mahindra University</div>
+
+          <div class="selected-card">
+            Schneider Electric India Pvt. Ltd.
+          </div>
+
+          <div class="selected-card">
+            Creamline Dairy Products Ltd
+          </div>
+
+          <div class="selected-card">
+            HBL Engineering Limited
+          </div>
+
+          <div class="selected-card">
+            Medha Rail Pvt Ltd
+          </div>
+
+          <div class="selected-card">
+            Aparna Enterprises Limited
+          </div>
+
+          <div class="selected-card">
+            Suguna Foods Private Limited
+          </div>
+
+          <div class="selected-card">
+            Saptagiri Laboratories
+          </div>
+
+          <div class="selected-card">
+            Natco Pharma
+          </div>
+
+          <div class="selected-card">
+            Gleneagles Hospitals
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="customer-section">
+      <div class="customers-wrap">
+
+        <div class="section-title">
+          <h2>All Customers</h2>
+
+          <p>
+            Search the customer list below by organization name.
+          </p>
+        </div>
+
+        <div class="customer-tools">
+
+          <input
+            type="search"
+            id="customerSearch"
+            class="customer-search"
+            placeholder="Search customer name..."
+            aria-label="Search customers"
+          >
+
+          <p
+            id="customerCount"
+            class="customer-count"
+          ></p>
+
+        </div>
+
+        <div
+          id="customerList"
+          class="customer-list"
+        ></div>
+
+        <div class="customer-note">
+          Customer names are shown from our business records.
+          Detailed addresses, GST numbers and other commercial information
+          are intentionally not displayed on this public page.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div>
+        <strong>
+          Sri Laxmi Sai Scientific Services
+        </strong>
+
+        <p>
+          Water Management & Scientific Services
+        </p>
+      </div>
+
+      <div>
+        <p>
+          Hyderabad, Telangana, India
+        </p>
+
+        <p>
+          +91 92909 25253
+        </p>
+
+        <p>
+          saiscientific.dhaara@gmail.com
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span>
+      Sri Laxmi Sai Scientific Services.
+      All rights reserved.
+    </div>
+  </footer>
+
+
+  <script>
+
+    const customers = [
+
+      "M/S Sri Siddhi Vinayaka Rice Industries",
+      "Kadimi Nursing Home",
+      "Creamline Dairy Products Ltd",
+      "Pawan Refineries Private Limited",
+      "Aptar Pharma India Pvt Ltd",
+      "KDA Ispat Pvt Ltd",
+      "Pragati Pack India Pvt Ltd",
+      "Sri KanakadurgA Filling Station",
+      "Sumo Biscuits Private Limited",
+      "Plant Lipids Private Limited",
+      "Gleneagles Hospitals",
+      "Lisa Ampules & Vials Pvt Ltd",
+      "National Mart Siddipet",
+      "Chinta Neuro Centre",
+      "Zuari Cement",
+      "TKIL Industries Pvt. Ltd.",
+      "Suryateja Power Projects Private Limited",
+      "Pitti Engineering Limited",
+      "PCB Eco Consulting and Services",
+      "SDI Business Services India Pvt Ltd",
+      "Ideal Industries Explosion",
+      "Gland Pharma",
+      "Vishaka Industries",
+      "NED Electronics",
+      "SVRE Packings Pvt Ltd",
+      "Ji Tech India Private Limited",
+      "JK Fenner India Ltd",
+      "Plutus Hospital",
+      "Pharmacy College Jangaon",
+      "Vedadri Paper Mills",
+      "Globion India Pvt Ltd",
+      "HETERO Pharma",
+      "Heritage Foods Limited",
+      "City Union Bank",
+      "Ramky",
+      "Saptagiri Laboratories Pvt Ltd",
+      "Sree Rajeswari Dairy Products",
+      "Natco Pharma",
+      "MPL Steel Industries Pvt Ltd",
+      "Birla Open Minds School",
+      "Regenesis Industries Private Limited",
+      "Vidya Herbals",
+      "Sree Siddhi Pradatha",
+      "Adani Group",
+      "NAMO eWaste Management Ltd.",
+      "St. Mary Educational Society",
+      "Midwaste",
+      "Arunodaya Print Pack Pvt. Ltd.",
+      "BirthRight Children Hospital",
+      "Dr. Reddy's Laboratories",
+      "Mold-Tek Packaging Ltd",
+      "Sri Chandra Hospital",
+      "Rane Brakes",
+      "Covalent Laboratories",
+      "Hindware Maintenance",
+      "IME Karakapetla",
+      "Deccan Cements Limited",
+      "Keerthi Industries Limited",
+      "Mahi Granites Pvt Ltd",
+      "Granules Life Sciences Private Limited",
+      "Madhucon Sugar and Power Industries Limited",
+      "Bhavana Power Private Limited",
+      "Navadurga Enterprises Pvt Ltd",
+      "Amrutanjan Health Care Ltd",
+      "Hindware Limited",
+      "Vijay Kumar Agro Oils Pvt Ltd",
+      "Aparna Enterprises Limited",
+      "Tribo Industries",
+      "Elite Water Supplies",
+      "Aparna-Craft Exteriors Private Limited",
+      "C-MET",
+      "BirlaNu Limited",
+      "Vasantha Rice Industries",
+      "Lahari Pearl Heights",
+      "Trade Syndicate",
+      "JRS Constructions and Developers",
+      "SSF Plastics India Ltd",
+      "Horizon Polymer Engineering Pvt Ltd",
+      "Fertis India Private Limited",
+      "Sugunan Motors",
+      "Red Rose Function Hall",
+      "NSJ Prayog Life Sciences Private Limited",
+      "Sukaso Ceracolors Private Limited",
+      "Lohum Catalysts Private Limited",
+      "Kamineni Health Services Private Limited",
+      "Hintastica Private Limited",
+      "Radico Khaitan",
+      "MRF Limited",
+      "Johnson's Grammar School",
+      "Radha Smelters Private Limited",
+      "Suguna Foods Private Limited",
+      "Unique Biotech Limited",
+      "Vimta Labs",
+      "V-Guard",
+      "Mega Dairy",
+      "Pidilite Industries Limited",
+      "REFL - The Reserve by Ramky",
+      "Vishnave Pharmachem",
+      "SVKM's NMIMS Hyderabad",
+      "East Pharma Technologies",
+      "Lifeline Tulasi Multispeciality Hospitals",
+      "HBL Engineering Limited",
+      "USAI Forge (P) Limited",
+      "Sagi Panels LLP",
+      "ITC Limited - PSPD",
+      "DXN",
+      "Mahindra University",
+      "Mitra Foods and Beverages Private Limited",
+      "Khoday Industries (Hyd) Pvt Ltd",
+      "MRF Limited - Ankanpally",
+      "Gaangey Minerals Private Limited",
+      "Avartana Garden City",
+      "MSN Lifesciences Private Limited",
+      "NATCO PHARMA LIMITED",
+      "AMR India Limited",
+      "Sibelco",
+      "Pragati RRD Pvt. Ltd.",
+      "Medha Servo Drives Private Limited",
+      "Prakruthi Beverages Pvt Ltd",
+      "Schneider Electric India Pvt. Ltd.",
+      "Mahalaxmi Profiles Pvt. Ltd.",
+      "Assago Industries Pvt. Ltd.",
+      "Arusa Enterprises Pvt Ltd",
+      "Oyster Medisafe",
+      "PowerCube Products & Services",
+      "NYSA Consumer Products Pvt Ltd",
+      "Voith Turbo Private Limited",
+      "Sri Venkateswara Engineering Enterprises",
+      "Oceanmist LLP",
+      "Agro Tech",
+      "RMJ Veritable Products Pvt. Ltd.",
+      "ALP Aeroflex India Pvt Ltd",
+      "Agromech Industries",
+      "Landmark Infra Projects",
+      "Vishnu IAS Academy",
+      "Kumar Containers Pvt. Ltd.",
+      "Reactive Metals of India Pvt Ltd",
+      "South Asian Ceramic Tiles Pvt. Ltd.",
+      "Vigneshwara Beverages Pvt Ltd",
+      "YASH Resources Recycling Limited",
+      "Chemo India Formulation",
+      "Vinayaka Mycrons",
+      "Tru Solar",
+      "Visaka Industries",
+      "BioMerieux India Pvt Ltd",
+      "APEEJAY Surendra Park Hotels Limited",
+      "Jurala Organics Private Limited",
+      "Bactolac Nutraceuticals Pvt. Ltd.",
+      "BN Pack Corrugated Pvt Ltd",
+      "Sudhakar PVC Products Pvt. Ltd.",
+      "Saritha Engineering Works",
+      "Hindustan Foods Limited",
+      "Whitefield Bio Products Pvt Limited",
+      "Greeways Bio Energy",
+      "Gandor",
+      "Skylark",
+      "Medha Rail Pvt Ltd",
+      "Vasantha Rice Industries",
+      "MPL",
+      "Ramkey Orient"
+    ];
+
+
+    const customerList =
+      document.getElementById("customerList");
+
+    const customerSearch =
+      document.getElementById("customerSearch");
+
+    const customerCount =
+      document.getElementById("customerCount");
+
+
+    function renderCustomers(query = "") {
+
+      const q =
+        query.trim().toLowerCase();
+
+      const filtered =
+        customers
+          .filter(name =>
+            name.toLowerCase().includes(q)
+          )
+          .sort((a,b) =>
+            a.localeCompare(b)
+          );
+
+      customerList.innerHTML = "";
+
+      if (!filtered.length) {
+
+        customerList.innerHTML = `
+          <div class="no-results">
+            No matching customer found.
+          </div>
+        `;
+
+      } else {
+
+        filtered.forEach(name => {
+
+          const item =
+            document.createElement("div");
+
+          item.className =
+            "customer-item";
+
+          item.innerHTML =
+            `<strong>${name}</strong>`;
+
+          customerList.appendChild(item);
+
+        });
+
+      }
+
+      customerCount.textContent =
+        `${filtered.length} customer name(s) shown`;
+
+    }
+
+
+    customerSearch.addEventListener(
+      "input",
+      event => {
+        renderCustomers(event.target.value);
+      }
+    );
+
+
+    renderCustomers();
+
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    const menu =
+      document.getElementById("menuBtn");
+
+    const nav =
+      document.getElementById("mainNav");
+
+    menu?.addEventListener(
+      "click",
+      () => {
+        nav?.classList.toggle("open");
+      }
+    );
+
+  </script>
+
+</body>
+</html>
