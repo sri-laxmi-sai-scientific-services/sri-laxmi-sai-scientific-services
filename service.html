@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>
+    Service & Repair Request | Sri Laxmi Sai Scientific Services
+  </title>
+
+  <meta
+    name="description"
+    content="Submit a repair, service, calibration or technical support request to Sri Laxmi Sai Scientific Services."
+  >
+
+  <link rel="icon" href="logo.png">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+    .page-hero{
+      padding:75px 0;
+      background:linear-gradient(135deg,#eef8fa,#ffffff);
+      border-bottom:1px solid #dfe9ef;
+    }
+
+    .page-hero h1{
+      color:var(--navy);
+      margin:10px 0 15px;
+      font-size:clamp(40px,5vw,64px);
+    }
+
+    .page-hero p{
+      max-width:850px;
+      color:#60758b;
+      font-size:19px;
+      line-height:1.7;
+    }
+
+    .service-section{
+      padding:75px 0;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:25px;
+      align-items:start;
+    }
+
+    .form-card-new{
+      padding:32px;
+      background:#fff;
+      border:1px solid #dce7ee;
+      border-radius:18px;
+      box-shadow:0 10px 28px rgba(10,50,80,.05);
+    }
+
+    .form-card-new h2{
+      color:var(--navy);
+      margin-top:0;
+    }
+
+    .form-card-new > p{
+      color:#62768b;
+      line-height:1.7;
+    }
+
+    .form-card-new label{
+      display:block;
+      color:var(--navy);
+      font-weight:700;
+      margin-bottom:17px;
+    }
+
+    .form-card-new input,
+    .form-card-new select,
+    .form-card-new textarea{
+      width:100%;
+      margin-top:8px;
+      padding:13px 14px;
+      border:1px solid #ccd9e5;
+      border-radius:9px;
+      background:#fff;
+      font:inherit;
+      color:#173b5d;
+      box-sizing:border-box;
+    }
+
+    .form-card-new textarea{
+      min-height:170px;
+      resize:vertical;
+    }
+
+    .form-card-new input:focus,
+    .form-card-new select:focus,
+    .form-card-new textarea:focus{
+      outline:none;
+      border-color:#0b72b5;
+      box-shadow:0 0 0 3px rgba(11,114,181,.08);
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    .file-note{
+      display:block;
+      margin-top:7px;
+      color:#718398;
+      font-size:13px;
+      font-weight:500;
+    }
+
+    .status-note{
+      margin-top:18px;
+      color:#008fa3;
+      line-height:1.6;
+    }
+
+    .info-card{
+      padding:30px;
+      background:#f5f9fb;
+      border:1px solid #dce7ee;
+      border-radius:18px;
+    }
+
+    .info-card h2{
+      color:var(--navy);
+      margin-top:0;
+    }
+
+    .info-card p{
+      color:#62768b;
+      line-height:1.7;
+    }
+
+    .info-item{
+      padding:18px 0;
+      border-bottom:1px solid #dce7ee;
+    }
+
+    .info-item:last-child{
+      border-bottom:none;
+    }
+
+    .info-item strong{
+      display:block;
+      color:var(--navy);
+      margin-bottom:6px;
+    }
+
+    .info-item span{
+      color:#62768b;
+      line-height:1.6;
+    }
+
+    .help-box{
+      margin-top:35px;
+      padding:30px;
+      background:#082a4d;
+      color:#fff;
+      border-radius:18px;
+    }
+
+    .help-box h2{
+      color:#fff;
+      margin-top:0;
+    }
+
+    .help-box p{
+      max-width:800px;
+      line-height:1.7;
+      opacity:.92;
+    }
+
+    .help-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .help-actions a{
+      text-decoration:none;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#e8f5f7;
+      color:#0b6680;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:850px){
+
+      .service-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .two-col{
+        grid-template-columns:1fr;
+      }
+
+      .form-card-new,
+      .info-card,
+      .help-box{
+        padding:24px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a
+      class="brand"
+      href="index.html"
+    >
+
+      <img
+        src="logo.png"
+        alt="Sri Laxmi Sai Scientific Services logo"
+      >
+
+      <span>
+
+        <b>SRI LAXMI SAI</b>
+
+        <strong>SCIENTIFIC SERVICES</strong>
+
+        <small>
+          GROUNDWATER • HYDROGEOLOGY • WATER MANAGEMENT
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open menu"
+    >
+      ☰
+    </button>
+
+
+    <nav id="mainNav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="products/index.html">
+        Products
+      </a>
+
+      <a href="solutions/index.html">
+        Solutions
+      </a>
+
+      <a href="services/index.html">
+        Services
+      </a>
+
+      <a href="resources/index.html">
+        Resources
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a
+        class="nav-cta"
+        href="contact.html"
+      >
+        Contact Us
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="page-hero">
+
+  <div class="container">
+
+    <span class="badge">
+      Service & Repair
+    </span>
+
+    <h1>
+      Raise a Service Request
+    </h1>
+
+    <p>
+      Submit repair, breakdown, calibration,
+      installation or technical-support
+      requirements for your instrument or
+      water-management system.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section class="service-section">
+
+  <div class="container">
+
+
+    <div class="service-grid">
+
+
+      <!-- FORM -->
+
+      <div class="form-card-new">
+
+        <h2>
+          Service Request Form
+        </h2>
+
+        <p>
+          Please provide the instrument details
+          and describe the issue or service
+          requirement clearly.
+        </p>
+
+
+        <form
+          id="serviceForm"
+          enctype="multipart/form-data"
+        >
+
+
+          <input
+            type="hidden"
+            name="type"
+            value="service"
+          >
+
+
+          <div class="two-col">
+
+
+            <label>
+
+              Service Type
+
+              <select
+                name="subject"
+                required
+              >
+
+                <option value="">
+                  Select service
+                </option>
+
+                <option value="Repair / Breakdown">
+                  Repair / Breakdown
+                </option>
+
+                <option value="Calibration">
+                  Calibration
+                </option>
+
+                <option value="Installation Support">
+                  Installation Support
+                </option>
+
+                <option value="Technical Support">
+                  Technical Support
+                </option>
+
+                <option value="Inspection">
+                  Inspection
+                </option>
+
+                <option value="Other Service">
+                  Other Service
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <label>
+
+              Instrument
+
+              <input
+                type="text"
+                name="instrument"
+                placeholder="Example: Flow Meter / Piezometer / DWLR"
+                required
+              >
+
+            </label>
+
+
+          </div>
+
+
+          <div class="two-col">
+
+
+            <label>
+
+              Your Name
+
+              <input
+                type="text"
+                name="name"
+                required
+              >
+
+            </label>
+
+
+            <label>
+
+              Company
+
+              <input
+                type="text"
+                name="company"
+              >
+
+            </label>
+
+
+          </div>
+
+
+          <div class="two-col">
+
+
+            <label>
+
+              Phone
+
+              <input
+                type="tel"
+                name="phone"
+                required
+              >
+
+            </label>
+
+
+            <label>
+
+              Email
+
+              <input
+                type="email"
+                name="email"
+              >
+
+            </label>
+
+
+          </div>
+
+
+          <div class="two-col">
+
+
+            <label>
+
+              Site Location
+
+              <input
+                type="text"
+                name="location"
+                placeholder="City / State"
+                required
+              >
+
+            </label>
+
+
+            <label>
+
+              Serial / FM Number
+
+              <input
+                type="text"
+                name="serial_number"
+                placeholder="Instrument serial or FM number"
+              >
+
+            </label>
+
+
+          </div>
+
+
+          <label>
+
+            Issue / Requirement
+
+            <textarea
+              name="message"
+              required
+              placeholder="Describe the issue, breakdown, calibration requirement or technical support needed..."
+            ></textarea>
+
+          </label>
+
+
+          <label>
+
+            Attachment
+
+            <input
+              type="file"
+              name="attachment"
+              accept=".pdf,.jpg,.jpeg,.png"
+            >
+
+            <span class="file-note">
+              PDF, JPG or PNG • Maximum 10 MB
+            </span>
+
+          </label>
+
+
+          <button
+            class="btn primary"
+            type="submit"
+          >
+            Raise Service Request
+          </button>
+
+
+          <p
+            class="status-note"
+            id="serviceStatus"
+          ></p>
+
+
+        </form>
+
+      </div>
+
+
+
+      <!-- INFORMATION -->
+
+      <div class="info-card">
+
+        <span class="badge">
+          Helpful Information
+        </span>
+
+        <h2>
+          What should you provide?
+        </h2>
+
+        <p>
+          The more information you provide,
+          the easier it is for us to understand
+          the service requirement.
+        </p>
+
+
+        <div class="info-item">
+
+          <strong>
+            Instrument Name
+          </strong>
+
+          <span>
+            Tell us whether it is a flow meter,
+            piezometer, DWLR or another instrument.
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <strong>
+            Serial / FM Number
+          </strong>
+
+          <span>
+            Provide the instrument serial number,
+            FM number or other identification
+            where available.
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <strong>
+            Issue Description
+          </strong>
+
+          <span>
+            Describe the problem, error,
+            communication issue, physical damage
+            or service requirement.
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <strong>
+            Site Location
+          </strong>
+
+          <span>
+            Mention the city, state and project
+            location where the service is required.
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <strong>
+            Photograph / Document
+          </strong>
+
+          <span>
+            Attach a photograph, quotation,
+            report, specification or other
+            supporting document where useful.
+          </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <strong>
+            Calibration Requirement
+          </strong>
+
+          <span>
+            For calibration requests, mention
+            the instrument type and required
+            calibration service.
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="help-box">
+
+      <span
+        class="badge"
+        style="
+          background:rgba(255,255,255,.12);
+          color:#fff;
+        "
+      >
+        Need Immediate Assistance?
+      </span>
+
+      <h2>
+        Prefer to contact us directly?
+      </h2>
+
+      <p>
+        For urgent service or breakdown
+        requirements, you can contact our team
+        directly by phone, WhatsApp or email.
+      </p>
+
+
+      <div class="help-actions">
+
+
+        <a
+          href="tel:+919290925253"
+          class="btn"
+          style="background:#fff;color:#082a4d"
+        >
+          Call Us
+        </a>
+
+
+        <a
+          href="https://wa.me/919290925253"
+          target="_blank"
+          rel="noopener"
+          class="btn"
+          style="background:#fff;color:#082a4d"
+        >
+          WhatsApp
+        </a>
+
+
+        <a
+          href="mailto:saiscientific.dhaara@gmail.com"
+          class="btn"
+          style="background:#fff;color:#082a4d"
+        >
+          Email Us
+        </a>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+  <div class="container footer-grid">
+
+
+    <div>
+
+      <b>
+        SRI LAXMI SAI SCIENTIFIC SERVICES
+      </b>
+
+      <p>
+        Groundwater • Hydrogeology •
+        Water Management • Scientific Services
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="products/index.html">
+        Products
+      </a>
+
+      <a href="solutions/index.html">
+        Solutions
+      </a>
+
+      <a href="services/index.html">
+        Services
+      </a>
+
+      <a href="resources/index.html">
+        Resources
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <a href="tel:+919290925253">
+        +91 92909 25253
+      </a>
+
+      <a href="mailto:saiscientific.dhaara@gmail.com">
+        saiscientific.dhaara@gmail.com
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="copyright">
+
+    ©
+    <span id="year"></span>
+    Sri Laxmi Sai Scientific Services.
+    All rights reserved.
+
+  </div>
+
+</footer>
+
+
+
+<script src="config.js"></script>
+
+<script>
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+
+  const menu =
+    document.getElementById('menuBtn');
+
+
+  const nav =
+    document.getElementById('mainNav');
+
+
+  menu?.addEventListener(
+    'click',
+    () => {
+      nav?.classList.toggle('open');
+    }
+  );
+
+
+  const form =
+    document.getElementById('serviceForm');
+
+
+  form?.addEventListener(
+    'submit',
+    async function(event){
+
+      event.preventDefault();
+
+      const status =
+        document.getElementById('serviceStatus');
+
+      const submitButton =
+        form.querySelector('button[type="submit"]');
+
+      const file =
+        form.querySelector('input[type="file"]')
+          ?.files?.[0];
+
+
+      status.textContent =
+        'Submitting...';
+
+      submitButton.disabled =
+        true;
+
+
+      try{
+
+
+        const config =
+          window.SLS_CONFIG || {};
+
+
+        if(
+          !config.SUPABASE_URL ||
+          !config.SUPABASE_ANON_KEY
+        ){
+
+          throw new Error(
+            'Supabase configuration is missing.'
+          );
+
+        }
+
+
+        const data =
+          Object.fromEntries(
+            new FormData(form).entries()
+          );
+
+
+        let attachmentPath = '';
+
+
+        const headers = {
+
+          apikey:
+            config.SUPABASE_ANON_KEY,
+
+          Authorization:
+            `Bearer ${config.SUPABASE_ANON_KEY}`
+
+        };
+
+
+        if(file){
+
+          if(
+            file.size >
+            10 * 1024 * 1024
+          ){
+
+            throw new Error(
+              'Attachment must be 10 MB or smaller.'
+            );
+
+          }
+
+
+          const allowedTypes = [
+            'application/pdf',
+            'image/jpeg',
+            'image/png'
+          ];
+
+
+          if(
+            !allowedTypes.includes(file.type)
+          ){
+
+            throw new Error(
+              'Only PDF, JPG and PNG files are allowed.'
+            );
+
+          }
+
+
+          const safe =
+            file.name.replace(
+              /[^a-zA-Z0-9._-]/g,
+              '_'
+            );
+
+
+          const path =
+            `${Date.now()}-${safe}`;
+
+
+          const uploadResponse =
+            await fetch(
+              `${config.SUPABASE_URL}/storage/v1/object/service-attachments/${path}`,
+              {
+                method:'POST',
+
+                headers:{
+                  ...headers,
+
+                  'Content-Type':
+                    file.type
+                },
+
+                body:file
+              }
+            );
+
+
+          if(!uploadResponse.ok){
+
+            const uploadError =
+              await uploadResponse.text();
+
+            throw new Error(
+              uploadError ||
+              'Attachment upload failed.'
+            );
+
+          }
+
+
+          attachmentPath =
+            path;
+
+        }
+
+
+        const saveResponse =
+          await fetch(
+            `${config.SUPABASE_URL}/rest/v1/enquiries`,
+            {
+              method:'POST',
+
+              headers:{
+                ...headers,
+
+                'Content-Type':
+                  'application/json',
+
+                Prefer:
+                  'return=minimal'
+              },
+
+              body:JSON.stringify({
+
+                type:'service',
+
+                subject:
+                  data.subject || '',
+
+                name:
+                  data.name || '',
+
+                company:
+                  data.company || '',
+
+                phone:
+                  data.phone || '',
+
+                email:
+                  data.email || '',
+
+                location:
+                  data.location || '',
+
+                instrument:
+                  data.instrument || '',
+
+                message:
+                  data.message || '',
+
+                attachment_path:
+                  attachmentPath
+
+              })
+
+            }
+
+          );
+
+
+        if(!saveResponse.ok){
+
+          const errorText =
+            await saveResponse.text();
+
+          throw new Error(
+            errorText ||
+            'Could not save service request.'
+          );
+
+        }
+
+
+        status.textContent =
+          'Submitted successfully. Our team can view this service request in the admin panel.';
+
+        form.reset();
+
+
+      }catch(error){
+
+        status.textContent =
+          `Could not submit online: ${error.message}`;
+
+      }finally{
+
+        submitButton.disabled =
+          false;
+
+      }
+
+    }
+
+  );
+
+</script>
+
+
+</body>
+</html>
