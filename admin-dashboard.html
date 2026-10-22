@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard | Sri Laxmi Sai Scientific Services</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+body{background:#f5f8fb}.dashboard{padding:38px 0 70px}.dash-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}.dash-top h1{color:var(--navy);margin:10px 0}.dash-top p{color:#62768b}.dash-actions{display:flex;gap:10px;flex-wrap:wrap}.filters{display:grid;grid-template-columns:minmax(220px,2fr) repeat(2,minmax(150px,1fr)) auto auto;gap:12px;margin:24px 0;align-items:end}.filters label{display:block;color:var(--navy);font-weight:700;font-size:14px}.filters input,.filters select{width:100%;box-sizing:border-box;margin-top:7px;padding:12px;border:1px solid #ccd9e5;border-radius:9px;background:#fff;font:inherit}.count{color:#52677f;font-weight:700;margin:14px 0}.table-wrap{overflow:auto;background:#fff;border:1px solid #dce7ee;border-radius:14px;box-shadow:0 10px 28px rgba(8,42,77,.05)}table{width:100%;min-width:1450px;border-collapse:collapse}th,td{padding:13px;border-bottom:1px solid #e5ebf1;text-align:left;vertical-align:top;max-width:320px;overflow-wrap:anywhere}th{position:sticky;top:0;background:#eef4f8;color:var(--navy);white-space:nowrap}tbody tr:hover{background:#f9fcfe}.status-select{padding:8px;border:1px solid #ccd9e5;border-radius:7px;background:#fff;min-width:128px}.table-link{display:inline-block;padding:7px 10px;background:#edf7fb;border:1px solid #cfe5ef;border-radius:7px;color:#075d93;text-decoration:none;font-weight:700;font-size:13px;white-space:nowrap}.empty-state{padding:30px!important;text-align:center;color:#62768b}.status-message{min-height:24px;margin:12px 0;color:#087e8b}.logout{background:#fff;color:#082a4d;border:1px solid #cbd8e5}.message-cell{min-width:220px;white-space:pre-wrap}.phone-cell{white-space:nowrap}
+@media(max-width:1100px){.filters{grid-template-columns:1fr 1fr}.filters>*{min-width:0}}@media(max-width:600px){.filters{grid-template-columns:1fr}.dashboard{padding-top:25px}}
+</style></head>
+<body>
+<main class="dashboard"><div class="container">
+<div class="dash-top"><div><span class="badge">Private Admin Area</span><h1>Sri Laxmi Sai Scientific Services</h1><p>Customer product enquiries, repair requests and service follow-ups.</p><p id="signedInAs" style="font-size:13px"></p></div><div class="dash-actions"><a href="index.html" class="btn outline">View Website</a><button id="refreshButton" class="btn outline" type="button">Refresh</button><button id="logoutButton" class="btn logout" type="button">Log out</button></div></div>
+<div class="filters">
+<label>Search<input type="search" id="searchInput" placeholder="Name, company, phone, email, product…"></label>
+<label>Request type<select id="typeFilter"><option value="">All types</option><option value="product">Product enquiry</option><option value="service">Service request</option></select></label>
+<label>Status<select id="statusFilter"><option value="">All statuses</option><option value="New">New</option><option value="In Progress">In Progress</option><option value="Completed">Completed</option><option value="Closed">Closed</option></select></label>
+<button id="applyFilters" class="btn primary" type="button">Apply</button><button id="clearFilters" class="btn outline" type="button">Clear</button>
+</div>
+<p class="count" id="requestCount">Loading requests…</p><p class="status-message" id="statusMessage" role="status" aria-live="polite"></p>
+<div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Customer</th><th>Company</th><th>Phone</th><th>Email</th><th>Subject</th><th>Location</th><th>Instrument</th><th>Message</th><th>Status</th><th>Attachment</th></tr></thead><tbody id="requestRows"><tr><td class="empty-state" colspan="12">Checking administrator session…</td></tr></tbody></table></div>
+</div></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script>
+</body></html>
