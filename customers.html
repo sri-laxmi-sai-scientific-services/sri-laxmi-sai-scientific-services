@@ -1,182 +1,483 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Customers | Sri Laxmi Sai Scientific Services</title>
 
-  <meta
-    name="description"
-    content="Selected customers and organizations served by Sri Laxmi Sai Scientific Services."
-  >
+  <meta name="description"
+    content="Customer sectors and business relationships of Sri Laxmi Sai Scientific Services, Hyderabad.">
 
   <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    .customers-hero{
-      padding:70px 20px 45px;
-      background:linear-gradient(180deg,#f4fbff 0%,#ffffff 100%);
+    :root {
+      --customer-navy: #082a4d;
+      --customer-blue: #0879bd;
+      --customer-text: #243e57;
+      --customer-muted: #62768b;
+      --customer-border: #dce7ee;
+      --customer-bg: #f3f8fb;
     }
 
-    .customers-wrap{
-      max-width:1180px;
-      margin:0 auto;
+    * {
+      box-sizing: border-box;
     }
 
-    .customers-hero h1{
-      margin:0 0 14px;
-      font-size:clamp(2.2rem,5vw,4.2rem);
-      color:#082a4d;
+    body {
+      margin: 0;
+      color: var(--customer-text);
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
     }
 
-    .customers-hero p{
-      max-width:820px;
-      font-size:1.08rem;
-      line-height:1.8;
-      color:#42566b;
-      margin:0;
+    .container {
+      width: min(1240px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .customer-section{
-      padding:55px 20px;
+    /* HEADER */
+
+    .site-header {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid var(--customer-border);
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:35px;
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding-top: 13px;
+      padding-bottom: 13px;
     }
 
-    .section-title h2{
-      margin:0 0 10px;
-      color:#082a4d;
-      font-size:clamp(1.8rem,4vw,2.7rem);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+      min-width: 0;
+      color: var(--customer-navy);
+      text-decoration: none;
     }
 
-    .section-title p{
-      margin:0 auto;
-      max-width:780px;
-      color:#617184;
-      line-height:1.7;
+    .brand img {
+      display: block;
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
-    .selected-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:16px;
+    .brand span {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.35;
     }
 
-    .selected-card{
-      background:#fff;
-      border:1px solid #dfe9f1;
-      border-radius:16px;
-      padding:22px 18px;
-      min-height:92px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      box-shadow:0 8px 24px rgba(8,42,77,.06);
-      font-weight:700;
-      color:#143b60;
-      transition:transform .2s ease,box-shadow .2s ease;
+    .brand b {
+      font-size: 19px;
+      letter-spacing: .02em;
     }
 
-    .selected-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 28px rgba(8,42,77,.10);
+    .brand strong {
+      font-size: 15px;
+      color: var(--customer-blue);
+      letter-spacing: .07em;
     }
 
-    .customer-tools{
-      max-width:900px;
-      margin:0 auto 30px;
+    .brand small {
+      margin-top: 4px;
+      font-size: 9px;
+      letter-spacing: .09em;
+      color: var(--customer-muted);
     }
 
-    .customer-search{
-      width:100%;
-      padding:16px 18px;
-      border:1px solid #cfdbe6;
-      border-radius:12px;
-      font-size:1rem;
-      box-sizing:border-box;
-      outline:none;
+    #mainNav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 9px 15px;
+      min-width: 0;
+      flex: 1;
     }
 
-    .customer-search:focus{
-      border-color:#1688c8;
-      box-shadow:0 0 0 3px rgba(22,136,200,.12);
+    #mainNav a {
+      color: var(--customer-navy);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
-    .customer-count{
-      margin:12px 0 0;
-      color:#607488;
-      text-align:center;
-      font-size:.95rem;
+    #mainNav a:hover {
+      color: var(--customer-blue);
     }
 
-    .customer-list{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
+    #mainNav a.nav-cta {
+      display: inline-block;
+      padding: 10px 13px;
+      border-radius: 8px;
+      background: var(--customer-navy);
+      color: #fff;
+      text-align: center;
     }
 
-    .customer-item{
-      background:#fff;
-      border:1px solid #e1e8ee;
-      border-radius:12px;
-      padding:16px 18px;
-      color:#213e5a;
-      line-height:1.45;
+    #mainNav a.nav-cta:hover {
+      background: var(--customer-blue);
+      color: #fff;
     }
 
-    .customer-item strong{
-      color:#082a4d;
+    .menu-btn {
+      display: none;
+      flex: 0 0 auto;
+      border: 1px solid var(--customer-border);
+      background: #fff;
+      color: var(--customer-navy);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 23px;
+      cursor: pointer;
     }
 
-    .no-results{
-      grid-column:1/-1;
-      text-align:center;
-      padding:35px;
-      color:#667788;
+    /* PAGE INTRODUCTION */
+
+    .customer-hero {
+      padding: 72px 0 65px;
+      background: linear-gradient(135deg, #edf8fa, #ffffff);
+      border-bottom: 1px solid var(--customer-border);
     }
 
-    .customer-note{
-      margin-top:35px;
-      background:#f5fbff;
-      border-left:4px solid #1688c8;
-      padding:18px 20px;
-      border-radius:8px;
-      color:#40566b;
-      line-height:1.7;
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 30px;
+      background: #e3f3f7;
+      color: #08718f;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
     }
 
-    @media (max-width:900px){
-      .selected-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+    .customer-hero h1 {
+      max-width: 950px;
+      color: var(--customer-navy);
+      font-size: clamp(36px, 4.5vw, 58px);
+      line-height: 1.15;
+      margin: 17px 0;
+    }
+
+    .customer-hero p {
+      max-width: 850px;
+      color: var(--customer-muted);
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* CUSTOMER CONTENT */
+
+    .customer-section {
+      padding: 55px 0 75px;
+    }
+
+    .customer-section h2 {
+      color: var(--customer-navy);
+      font-size: clamp(26px, 3vw, 35px);
+      line-height: 1.3;
+      margin: 14px 0;
+    }
+
+    .section-intro {
+      max-width: 850px;
+      color: var(--customer-muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .customer-notice {
+      margin-bottom: 36px;
+      padding: 20px 23px;
+      background: #f1f8fc;
+      border-left: 4px solid var(--customer-blue);
+      border-radius: 10px;
+      color: #38536d;
+      line-height: 1.8;
+    }
+
+    .customer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .customer-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 135px;
+      padding: 22px 17px;
+      border: 1px solid var(--customer-border);
+      border-radius: 13px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(8, 42, 77, .035);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .customer-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(8, 42, 77, .09);
+    }
+
+    .customer-name {
+      color: var(--customer-navy);
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    /* CONTACT CALLOUT */
+
+    .customer-callout {
+      margin-top: 48px;
+      padding: 30px;
+      background: var(--customer-navy);
+      color: #fff;
+      border-radius: 16px;
+    }
+
+    .customer-callout h2 {
+      color: #fff;
+      margin-top: 12px;
+    }
+
+    .customer-callout p {
+      max-width: 780px;
+      color: #e1ebf3;
+      line-height: 1.8;
+    }
+
+    .customer-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .customer-actions a {
+      display: inline-block;
+      padding: 12px 17px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--customer-navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .customer-actions a:hover {
+      background: #e4f3fa;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      background: #061f38;
+      color: #fff;
+      padding-top: 45px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 1fr;
+      gap: 40px;
+      padding-bottom: 35px;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .footer-grid p {
+      color: #bed0df;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .footer-links a {
+      color: #e5edf4;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-links a:hover {
+      color: #81d8ec;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      text-align: center;
+      color: #bed0df;
+      padding: 18px 20px;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE LAYOUT */
+
+    @media (max-width: 1180px) {
+      .nav-wrap {
+        gap: 12px;
       }
 
-      .customer-list{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+      .brand img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .brand b {
+        font-size: 17px;
+      }
+
+      .brand strong {
+        font-size: 13px;
+      }
+
+      .brand small {
+        font-size: 8px;
+      }
+
+      #mainNav {
+        gap: 8px 11px;
+      }
+
+      #mainNav a {
+        font-size: 12px;
+      }
+
+      .customer-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
-    @media (max-width:600px){
-      .customers-hero{
-        padding:50px 16px 35px;
+    @media (max-width: 950px) {
+      .nav-wrap {
+        flex-wrap: wrap;
       }
 
-      .customer-section{
-        padding:42px 16px;
+      .menu-btn {
+        display: block;
       }
 
-      .selected-grid,
-      .customer-list{
-        grid-template-columns:1fr;
+      #mainNav {
+        display: none;
+        flex: 0 0 100%;
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+      }
+
+      #mainNav.open {
+        display: flex;
+      }
+
+      #mainNav a {
+        display: block;
+        width: 100%;
+        padding: 11px 8px;
+        font-size: 14px;
+        white-space: normal;
+      }
+
+      #mainNav a.nav-cta {
+        margin-top: 6px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .customer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .brand img {
+        width: 47px;
+        height: 47px;
+      }
+
+      .brand b {
+        font-size: 15px;
+      }
+
+      .brand strong {
+        font-size: 12px;
+      }
+
+      .brand small {
+        max-width: 230px;
+        line-height: 1.5;
+        white-space: normal;
+      }
+
+      .customer-hero {
+        padding: 45px 0;
+      }
+
+      .customer-hero p {
+        font-size: 16px;
+      }
+
+      .customer-section {
+        padding: 40px 0 50px;
+      }
+
+      .customer-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .customer-card {
+        min-height: 95px;
+      }
+
+      .customer-callout {
+        padding: 23px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 23px;
       }
     }
   </style>
@@ -184,14 +485,13 @@
 
 <body>
 
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="header-inner">
+    <div class="container nav-wrap">
 
-      <a href="index.html" class="brand">
-        <img
-          src="logo.png"
-          alt="Sri Laxmi Sai Scientific Services logo"
-        >
+      <a class="brand" href="index.html">
+        <img src="logo.png"
+             alt="Sri Laxmi Sai Scientific Services logo">
 
         <span>
           <b>SRI LAXMI SAI</b>
@@ -200,507 +500,234 @@
         </span>
       </a>
 
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Open menu"
-        type="button"
-      >
+      <button class="menu-btn"
+              id="menuBtn"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false">
         ☰
       </button>
 
       <nav id="mainNav">
-
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="about.html">
-          About
-        </a>
-
-        <a href="products/index.html">
-          Products
-        </a>
-
-        <a href="solutions/index.html">
-          Solutions
-        </a>
-
-        <a href="services/index.html">
-          Services
-        </a>
-
-        <a href="resources/index.html">
-          Resources
-        </a>
-
-        <a href="customers.html">
-          Customers
-        </a>
-
-        <a href="contact.html">
-          Contact
-        </a>
-
-        <a href="enquiry.html">
-          Product Enquiry
-        </a>
-
-        <a
-          class="nav-cta"
-          href="service.html"
-        >
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products/index.html">Products</a>
+        <a href="solutions/index.html">Solutions</a>
+        <a href="services/index.html">Services</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="customers.html">Customers</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="enquiry.html">Product Enquiry</a>
+        <a class="nav-cta" href="service.html">
           Service / Repair Request
         </a>
-
       </nav>
+
     </div>
   </header>
 
   <main>
 
-    <section class="customers-hero">
-      <div class="customers-wrap">
+    <!-- INTRODUCTION -->
+    <section class="customer-hero">
+      <div class="container">
 
-        <div class="section-kicker">
-          OUR CUSTOMERS
-        </div>
+        <span class="eyebrow">Customers & Industries</span>
 
-        <h1>
-          Organizations We Have Served
-        </h1>
+        <h1>Relationships Built on Reliable Service</h1>
 
         <p>
-          Sri Laxmi Sai Scientific Services has supported customers
-          across industrial, pharmaceutical, healthcare, education,
-          infrastructure, food, power, engineering and other sectors.
-          The organizations below are presented from our customer records.
+          Sri Laxmi Sai Scientific Services supports water measurement,
+          groundwater monitoring and scientific equipment requirements
+          for industrial, infrastructure, laboratory and institutional
+          applications.
         </p>
 
       </div>
     </section>
 
-
+    <!-- CUSTOMER LIST -->
     <section class="customer-section">
-      <div class="customers-wrap">
+      <div class="container">
 
-        <div class="section-title">
-          <h2>Selected Customers</h2>
+        <span class="eyebrow">Our Customer Network</span>
+
+        <h2>Organizations & Institutions</h2>
+
+        <p class="section-intro">
+          The organizations listed below reflect the customer names
+          previously included on this website. Please verify each
+          relationship and your permission to publish it before making
+          this page public.
+        </p>
+
+        <div class="customer-notice">
+          For customer privacy, detailed site addresses, GST numbers,
+          purchase orders and other confidential commercial information
+          are not displayed on this public page.
+        </div>
+
+        <div class="customer-grid">
+
+          <div class="customer-card">
+            <span class="customer-name">MRF Limited</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Adani Group</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Hetero</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Gland Pharma</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Dr. Reddy's Laboratories</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Zuari Cement</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Pidilite Industries Limited</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Vimta Labs</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Granules India Limited</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">ITC Limited</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Mahindra University</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Schneider Electric India</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Creamline Dairy Products</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">HBL Engineering</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Medha Rail</span>
+          </div>
+
+          <div class="customer-card">
+            <span class="customer-name">Aparna Enterprises</span>
+          </div>
+
+        </div>
+
+        <section class="customer-callout">
+          <span class="eyebrow">Work With Us</span>
+
+          <h2>Have a Water Measurement Requirement?</h2>
 
           <p>
-            A selection of organizations from our recent customer records.
+            Contact our team to discuss your application, site
+            requirements, instrument selection, technical support
+            or service request.
           </p>
-        </div>
 
-        <div class="selected-grid">
-
-          <div class="selected-card">MRF Limited</div>
-
-          <div class="selected-card">Adani Group</div>
-
-          <div class="selected-card">HETERO Pharma</div>
-
-          <div class="selected-card">Gland Pharma</div>
-
-          <div class="selected-card">
-            Dr. Reddy's Laboratories
+          <div class="customer-actions">
+            <a href="enquiry.html">Request a Quotation</a>
+            <a href="contact.html">Contact Our Team</a>
+            <a href="gallery.html">View Our Gallery</a>
           </div>
-
-          <div class="selected-card">Zuari Cement</div>
-
-          <div class="selected-card">
-            Pidilite Industries Limited
-          </div>
-
-          <div class="selected-card">Vimta Labs</div>
-
-          <div class="selected-card">
-            Granules India Limited
-          </div>
-
-          <div class="selected-card">ITC Limited</div>
-
-          <div class="selected-card">Mahindra University</div>
-
-          <div class="selected-card">
-            Schneider Electric India Pvt. Ltd.
-          </div>
-
-          <div class="selected-card">
-            Creamline Dairy Products Ltd
-          </div>
-
-          <div class="selected-card">
-            HBL Engineering Limited
-          </div>
-
-          <div class="selected-card">
-            Medha Rail Pvt Ltd
-          </div>
-
-          <div class="selected-card">
-            Aparna Enterprises Limited
-          </div>
-
-          <div class="selected-card">
-            Suguna Foods Private Limited
-          </div>
-
-          <div class="selected-card">
-            Saptagiri Laboratories
-          </div>
-
-          <div class="selected-card">
-            Natco Pharma
-          </div>
-
-          <div class="selected-card">
-            Gleneagles Hospitals
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="customer-section">
-      <div class="customers-wrap">
-
-        <div class="section-title">
-          <h2>All Customers</h2>
-
-          <p>
-            Search the customer list below by organization name.
-          </p>
-        </div>
-
-        <div class="customer-tools">
-
-          <input
-            type="search"
-            id="customerSearch"
-            class="customer-search"
-            placeholder="Search customer name..."
-            aria-label="Search customers"
-          >
-
-          <p
-            id="customerCount"
-            class="customer-count"
-          ></p>
-
-        </div>
-
-        <div
-          id="customerList"
-          class="customer-list"
-        ></div>
-
-        <div class="customer-note">
-          Customer names are shown from our business records.
-          Detailed addresses, GST numbers and other commercial information
-          are intentionally not displayed on this public page.
-        </div>
+        </section>
 
       </div>
     </section>
 
   </main>
 
-
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="container footer-grid">
 
       <div>
-        <strong>
-          Sri Laxmi Sai Scientific Services
-        </strong>
+        <div class="footer-brand">
+          SRI LAXMI SAI SCIENTIFIC SERVICES
+        </div>
 
         <p>
-          Water Management & Scientific Services
+          Groundwater • Hydrogeology • Water Management •
+          Scientific Services
+        </p>
+
+        <p>
+          Padmavathi Colony, West Balaji Hill Colony, Hema Nagar,
+          Boduppal, Hyderabad, Telangana 500039, India.
         </p>
       </div>
 
       <div>
-        <p>
-          Hyderabad, Telangana, India
-        </p>
+        <div class="footer-brand">Explore</div>
 
-        <p>
-          +91 92909 25253
-        </p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="products/index.html">Products</a>
+          <a href="services/index.html">Services</a>
+          <a href="resources/index.html">Resources</a>
+          <a href="customers.html">Customers</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
 
-        <p>
-          saiscientific.dhaara@gmail.com
-        </p>
+      <div>
+        <div class="footer-brand">Contact Details</div>
+
+        <div class="footer-links">
+          <a href="tel:+919290925253">+91 92909 25253</a>
+          <a href="tel:+918465089044">+91 84650 89044</a>
+          <a href="mailto:saiscientific.dhaara@gmail.com">
+            saiscientific.dhaara@gmail.com
+          </a>
+          <a href="mailto:gangishetti.anil72@gmail.com">
+            gangishetti.anil72@gmail.com
+          </a>
+        </div>
       </div>
 
     </div>
 
-    <div class="footer-bottom">
+    <div class="copyright">
       © <span id="year"></span>
-      Sri Laxmi Sai Scientific Services.
-      All rights reserved.
+      Sri Laxmi Sai Scientific Services. All rights reserved.
     </div>
   </footer>
 
-
   <script>
-
-    const customers = [
-
-      "M/S Sri Siddhi Vinayaka Rice Industries",
-      "Kadimi Nursing Home",
-      "Creamline Dairy Products Ltd",
-      "Pawan Refineries Private Limited",
-      "Aptar Pharma India Pvt Ltd",
-      "KDA Ispat Pvt Ltd",
-      "Pragati Pack India Pvt Ltd",
-      "Sri KanakadurgA Filling Station",
-      "Sumo Biscuits Private Limited",
-      "Plant Lipids Private Limited",
-      "Gleneagles Hospitals",
-      "Lisa Ampules & Vials Pvt Ltd",
-      "National Mart Siddipet",
-      "Chinta Neuro Centre",
-      "Zuari Cement",
-      "TKIL Industries Pvt. Ltd.",
-      "Suryateja Power Projects Private Limited",
-      "Pitti Engineering Limited",
-      "PCB Eco Consulting and Services",
-      "SDI Business Services India Pvt Ltd",
-      "Ideal Industries Explosion",
-      "Gland Pharma",
-      "Vishaka Industries",
-      "NED Electronics",
-      "SVRE Packings Pvt Ltd",
-      "Ji Tech India Private Limited",
-      "JK Fenner India Ltd",
-      "Plutus Hospital",
-      "Pharmacy College Jangaon",
-      "Vedadri Paper Mills",
-      "Globion India Pvt Ltd",
-      "HETERO Pharma",
-      "Heritage Foods Limited",
-      "City Union Bank",
-      "Ramky",
-      "Saptagiri Laboratories Pvt Ltd",
-      "Sree Rajeswari Dairy Products",
-      "Natco Pharma",
-      "MPL Steel Industries Pvt Ltd",
-      "Birla Open Minds School",
-      "Regenesis Industries Private Limited",
-      "Vidya Herbals",
-      "Sree Siddhi Pradatha",
-      "Adani Group",
-      "NAMO eWaste Management Ltd.",
-      "St. Mary Educational Society",
-      "Midwaste",
-      "Arunodaya Print Pack Pvt. Ltd.",
-      "BirthRight Children Hospital",
-      "Dr. Reddy's Laboratories",
-      "Mold-Tek Packaging Ltd",
-      "Sri Chandra Hospital",
-      "Rane Brakes",
-      "Covalent Laboratories",
-      "Hindware Maintenance",
-      "IME Karakapetla",
-      "Deccan Cements Limited",
-      "Keerthi Industries Limited",
-      "Mahi Granites Pvt Ltd",
-      "Granules Life Sciences Private Limited",
-      "Madhucon Sugar and Power Industries Limited",
-      "Bhavana Power Private Limited",
-      "Navadurga Enterprises Pvt Ltd",
-      "Amrutanjan Health Care Ltd",
-      "Hindware Limited",
-      "Vijay Kumar Agro Oils Pvt Ltd",
-      "Aparna Enterprises Limited",
-      "Tribo Industries",
-      "Elite Water Supplies",
-      "Aparna-Craft Exteriors Private Limited",
-      "C-MET",
-      "BirlaNu Limited",
-      "Vasantha Rice Industries",
-      "Lahari Pearl Heights",
-      "Trade Syndicate",
-      "JRS Constructions and Developers",
-      "SSF Plastics India Ltd",
-      "Horizon Polymer Engineering Pvt Ltd",
-      "Fertis India Private Limited",
-      "Sugunan Motors",
-      "Red Rose Function Hall",
-      "NSJ Prayog Life Sciences Private Limited",
-      "Sukaso Ceracolors Private Limited",
-      "Lohum Catalysts Private Limited",
-      "Kamineni Health Services Private Limited",
-      "Hintastica Private Limited",
-      "Radico Khaitan",
-      "MRF Limited",
-      "Johnson's Grammar School",
-      "Radha Smelters Private Limited",
-      "Suguna Foods Private Limited",
-      "Unique Biotech Limited",
-      "Vimta Labs",
-      "V-Guard",
-      "Mega Dairy",
-      "Pidilite Industries Limited",
-      "REFL - The Reserve by Ramky",
-      "Vishnave Pharmachem",
-      "SVKM's NMIMS Hyderabad",
-      "East Pharma Technologies",
-      "Lifeline Tulasi Multispeciality Hospitals",
-      "HBL Engineering Limited",
-      "USAI Forge (P) Limited",
-      "Sagi Panels LLP",
-      "ITC Limited - PSPD",
-      "DXN",
-      "Mahindra University",
-      "Mitra Foods and Beverages Private Limited",
-      "Khoday Industries (Hyd) Pvt Ltd",
-      "MRF Limited - Ankanpally",
-      "Gaangey Minerals Private Limited",
-      "Avartana Garden City",
-      "MSN Lifesciences Private Limited",
-      "NATCO PHARMA LIMITED",
-      "AMR India Limited",
-      "Sibelco",
-      "Pragati RRD Pvt. Ltd.",
-      "Medha Servo Drives Private Limited",
-      "Prakruthi Beverages Pvt Ltd",
-      "Schneider Electric India Pvt. Ltd.",
-      "Mahalaxmi Profiles Pvt. Ltd.",
-      "Assago Industries Pvt. Ltd.",
-      "Arusa Enterprises Pvt Ltd",
-      "Oyster Medisafe",
-      "PowerCube Products & Services",
-      "NYSA Consumer Products Pvt Ltd",
-      "Voith Turbo Private Limited",
-      "Sri Venkateswara Engineering Enterprises",
-      "Oceanmist LLP",
-      "Agro Tech",
-      "RMJ Veritable Products Pvt. Ltd.",
-      "ALP Aeroflex India Pvt Ltd",
-      "Agromech Industries",
-      "Landmark Infra Projects",
-      "Vishnu IAS Academy",
-      "Kumar Containers Pvt. Ltd.",
-      "Reactive Metals of India Pvt Ltd",
-      "South Asian Ceramic Tiles Pvt. Ltd.",
-      "Vigneshwara Beverages Pvt Ltd",
-      "YASH Resources Recycling Limited",
-      "Chemo India Formulation",
-      "Vinayaka Mycrons",
-      "Tru Solar",
-      "Visaka Industries",
-      "BioMerieux India Pvt Ltd",
-      "APEEJAY Surendra Park Hotels Limited",
-      "Jurala Organics Private Limited",
-      "Bactolac Nutraceuticals Pvt. Ltd.",
-      "BN Pack Corrugated Pvt Ltd",
-      "Sudhakar PVC Products Pvt. Ltd.",
-      "Saritha Engineering Works",
-      "Hindustan Foods Limited",
-      "Whitefield Bio Products Pvt Limited",
-      "Greeways Bio Energy",
-      "Gandor",
-      "Skylark",
-      "Medha Rail Pvt Ltd",
-      "Vasantha Rice Industries",
-      "MPL",
-      "Ramkey Orient"
-    ];
-
-
-    const customerList =
-      document.getElementById("customerList");
-
-    const customerSearch =
-      document.getElementById("customerSearch");
-
-    const customerCount =
-      document.getElementById("customerCount");
-
-
-    function renderCustomers(query = "") {
-
-      const q =
-        query.trim().toLowerCase();
-
-      const filtered =
-        customers
-          .filter(name =>
-            name.toLowerCase().includes(q)
-          )
-          .sort((a,b) =>
-            a.localeCompare(b)
-          );
-
-      customerList.innerHTML = "";
-
-      if (!filtered.length) {
-
-        customerList.innerHTML = `
-          <div class="no-results">
-            No matching customer found.
-          </div>
-        `;
-
-      } else {
-
-        filtered.forEach(name => {
-
-          const item =
-            document.createElement("div");
-
-          item.className =
-            "customer-item";
-
-          item.innerHTML =
-            `<strong>${name}</strong>`;
-
-          customerList.appendChild(item);
-
-        });
-
-      }
-
-      customerCount.textContent =
-        `${filtered.length} customer name(s) shown`;
-
-    }
-
-
-    customerSearch.addEventListener(
-      "input",
-      event => {
-        renderCustomers(event.target.value);
-      }
-    );
-
-
-    renderCustomers();
-
-
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
+    const menuButton = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
 
-    const menu =
-      document.getElementById("menuBtn");
-
-    const nav =
-      document.getElementById("mainNav");
-
-    menu?.addEventListener(
-      "click",
-      () => {
-        nav?.classList.toggle("open");
-      }
-    );
-
+    menuButton?.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
   </script>
 
 </body>
