@@ -1,28 +1,514 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact | Sri Laxmi Sai Scientific Services</title>
-<meta name="description" content="Contact Sri Laxmi Sai Scientific Services in Uppal, Hyderabad for water metering, groundwater monitoring and technical service enquiries.">
-<link rel="icon" href="logo.png"><link rel="stylesheet" href="styles.css">
-<style>
-.contact-hero{padding:55px 0;background:linear-gradient(135deg,#eef8fa,#fff);border-bottom:1px solid #dce7ee}.contact-hero h1{font-size:clamp(36px,4.5vw,58px);line-height:1.2;color:var(--navy);margin:12px 0}.contact-hero p{max-width:800px;color:#62768b;line-height:1.75;font-size:18px}.contact-section{padding:55px 0 75px}.contact-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:26px;align-items:stretch}.contact-card{background:#fff;border:1px solid #dce7ee;border-radius:18px;padding:28px;box-shadow:0 10px 28px rgba(8,42,77,.05);min-width:0}.contact-card h2{color:var(--navy);margin-top:0}.contact-detail{padding:15px 0;border-bottom:1px solid #e3ebf1}.contact-detail:last-child{border-bottom:0}.contact-detail strong{display:block;color:var(--navy);margin-bottom:5px}.contact-detail p{margin:0;color:#62768b;line-height:1.7;overflow-wrap:anywhere}.contact-detail a{color:#075d93;text-decoration:none}.map-frame{width:100%;height:440px;border:0;border-radius:12px;background:#edf3f7}.map-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.map-actions a{text-decoration:none}.contact-note{color:#62768b;line-height:1.7;margin-top:18px;font-size:14px}
-@media(max-width:850px){.contact-grid{grid-template-columns:1fr}.map-frame{height:350px}}@media(max-width:600px){.contact-card{padding:22px}.contact-section{padding:35px 0}}
-</style></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Resources & Documents | Sri Laxmi Sai Scientific Services</title>
+
+  <meta
+    name="description"
+    content="Access company brochures, business registration documents, authorizations and technical product documentation from Sri Laxmi Sai Scientific Services."
+  >
+
+  <!-- IMPORTANT: This page is inside the resources folder -->
+  <link rel="icon" href="../logo.png">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .resource-hero {
+      padding: 65px 0;
+      background: linear-gradient(135deg, #edf8fa, #ffffff);
+      border-bottom: 1px solid #dce7ee;
+    }
+
+    .resource-hero h1 {
+      color: var(--navy);
+      font-size: clamp(35px, 4.5vw, 58px);
+      line-height: 1.2;
+      margin: 14px 0;
+    }
+
+    .resource-hero p {
+      max-width: 850px;
+      color: #62768b;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .resource-section {
+      padding: 55px 0 75px;
+    }
+
+    .resource-group {
+      margin-bottom: 55px;
+    }
+
+    .resource-group h2 {
+      color: var(--navy);
+      margin: 12px 0;
+      font-size: clamp(25px, 3vw, 34px);
+    }
+
+    .group-intro {
+      max-width: 850px;
+      color: #62768b;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .resource-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      background: #ffffff;
+      border: 1px solid #dce7ee;
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(8, 42, 77, 0.05);
+      box-sizing: border-box;
+    }
+
+    .resource-type {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 7px 11px;
+      background: #e8f5f7;
+      color: #0b6680;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .resource-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.45;
+      margin: 16px 0 10px;
+    }
+
+    .resource-card p {
+      color: #62768b;
+      line-height: 1.75;
+      margin: 0 0 20px;
+      overflow-wrap: anywhere;
+    }
+
+    .resource-card .btn {
+      align-self: flex-start;
+      margin-top: auto;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .resource-callout {
+      padding: 30px;
+      border: 1px solid #dce7ee;
+      border-radius: 18px;
+      background: #f3f8fa;
+    }
+
+    .resource-callout h2 {
+      color: var(--navy);
+      margin-top: 12px;
+    }
+
+    .resource-callout p {
+      color: #62768b;
+      line-height: 1.8;
+      max-width: 850px;
+    }
+
+    .resource-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .resource-actions a {
+      text-decoration: none;
+    }
+
+    .resource-note {
+      font-size: 13px;
+      color: #62768b;
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 800px) {
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-hero {
+        padding: 45px 0;
+      }
+
+      .resource-card,
+      .resource-callout {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
 <body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><img src="logo.png" alt="Sri Laxmi Sai Scientific Services logo"><span><b>SRI LAXMI SAI</b><strong>SCIENTIFIC SERVICES</strong><small>GROUNDWATER • HYDROGEOLOGY • WATER MANAGEMENT</small></span></a><button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button><nav id="mainNav"><a href="index.html">Home</a><a href="about.html">About</a><a href="products/index.html">Products</a><a href="solutions/index.html">Solutions</a><a href="services/index.html">Services</a><a href="resources/index.html">Resources</a><a href="customers.html">Customers</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="enquiry.html">Product Enquiry</a><a class="nav-cta" href="service.html">Service / Repair Request</a></nav></div></header>
-<main><section class="contact-hero"><div class="container"><span class="badge">Get in touch</span><h1>Contact Sri Laxmi Sai Scientific Services</h1><p>Contact our team for water metering, groundwater-monitoring equipment, product enquiries, documentation and technical service requests.</p></div></section>
-<section class="contact-section"><div class="container contact-grid">
-<div class="contact-card"><span class="badge">Company details</span><h2 style="margin-top:14px">We’re here to help</h2>
-<div class="contact-detail"><strong>Office address</strong><p>H.No: 2-20-3/56, Adharsha Nagar, Venkateswara Colony, Uppal Kalan, Hyderabad, Telangana – 500039, India</p></div>
-<div class="contact-detail"><strong>Phone</strong><p><a href="tel:+919290925253">+91 92909 25253</a><br><a href="tel:+918465089044">+91 84650 89044</a></p></div>
-<div class="contact-detail"><strong>Email</strong><p><a href="mailto:saiscientific.dhaara@gmail.com">saiscientific.dhaara@gmail.com</a><br><a href="mailto:gangishetti.anil72@gmail.com">gangishetti.anil72@gmail.com</a></p></div>
-<div class="contact-detail"><strong>Service and repair</strong><p>For a device issue, include the instrument type, serial/FM number, site location and a clear issue description.</p></div>
-<div class="map-actions"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=H.No%3A%202-20-3%2F56%2C%20Adharsha%20Nagar%2C%20Venkateswara%20Colony%2C%20Uppal%20Kalan%2C%20Hyderabad%2C%20Telangana%20500039" target="_blank" rel="noopener">Open Directions in Google Maps</a><a class="btn outline" href="service.html">Service Request</a></div>
-<p class="contact-note">The map below is based on the written office address. Please confirm the exact entrance/pin in Google Maps before sharing with customers.</p>
-</div>
-<div class="contact-card"><span class="badge">Find our office</span><h2 style="margin-top:14px">Our location in Uppal, Hyderabad</h2><iframe class="map-frame" title="Map to Sri Laxmi Sai Scientific Services in Uppal, Hyderabad" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=H.No%3A%202-20-3%2F56%2C%20Adharsha%20Nagar%2C%20Venkateswara%20Colony%2C%20Uppal%20Kalan%2C%20Hyderabad%2C%20Telangana%20500039&output=embed"></iframe><p class="contact-note">If this map does not point to the exact office entrance, replace the embed URL with the exact Google Maps share/embed link for your business location.</p></div>
-</div></section></main>
-<footer><div class="container footer-grid"><div><b>SRI LAXMI SAI SCIENTIFIC SERVICES</b><p>Groundwater • Hydrogeology • Water Management • Scientific Services</p></div><div><a href="index.html">Home</a><a href="about.html">About</a><a href="products/index.html">Products</a><a href="solutions/index.html">Solutions</a><a href="services/index.html">Services</a><a href="resources/index.html">Resources</a><a href="customers.html">Customers</a><a href="gallery.html">Gallery</a></div><div><a href="tel:+919290925253">+91 92909 25253</a><a href="tel:+918465089044">+91 84650 89044</a><a href="mailto:saiscientific.dhaara@gmail.com">saiscientific.dhaara@gmail.com</a></div></div><div class="copyright">© <span id="year"></span> Sri Laxmi Sai Scientific Services. All rights reserved.</div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('menuBtn')?.addEventListener('click',()=>document.getElementById('mainNav')?.classList.toggle('open'));</script><script src="site-enhancements.js"></script>
-</body></html>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+
+      <a class="brand" href="../index.html">
+        <img
+          src="../logo.png"
+          alt="Sri Laxmi Sai Scientific Services logo"
+        >
+
+        <span>
+          <b>SRI LAXMI SAI</b>
+          <strong>SCIENTIFIC SERVICES</strong>
+          <small>GROUNDWATER • HYDROGEOLOGY • WATER MANAGEMENT</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open menu"
+      >☰</button>
+
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../products/index.html">Products</a>
+        <a href="../solutions/index.html">Solutions</a>
+        <a href="../services/index.html">Services</a>
+        <a href="index.html">Resources</a>
+        <a href="../customers.html">Customers</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../enquiry.html">Product Enquiry</a>
+        <a class="nav-cta" href="../service.html">
+          Service / Repair Request
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE INTRODUCTION -->
+    <section class="resource-hero">
+      <div class="container">
+
+        <span class="badge">Company Library</span>
+
+        <h1>Resources & Documents</h1>
+
+        <p>
+          Explore company brochures, business registration documents,
+          authorizations and technical information relating to water
+          metering, groundwater monitoring and scientific services.
+          Download the documents available below or contact our team
+          for additional information.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="resource-section">
+      <div class="container">
+
+        <!-- COMPANY DOCUMENTS -->
+        <section class="resource-group">
+          <span class="badge">01 · Company Profile</span>
+          <h2>Company Brochure & Registrations</h2>
+
+          <p class="group-intro">
+            Learn about our services and review the business
+            registration documents available for customers and
+            procurement teams.
+          </p>
+
+          <div class="resource-grid">
+
+            <article class="resource-card">
+              <span class="resource-type">Company Brochure</span>
+              <h3>Sri Laxmi Sai Scientific Services — Professional Brochure</h3>
+              <p>
+                An introduction to our company, service capabilities,
+                areas of operation and scientific equipment solutions.
+              </p>
+              <a
+                class="btn primary"
+                href="Sri_Laxmi_Sai_Scientific_Services_Professional_Brochure%20(1).pdf"
+                target="_blank"
+                rel="noopener"
+              >View Brochure / Download PDF</a>
+            </article>
+
+            <article class="resource-card">
+              <span class="resource-type">Business Registration</span>
+              <h3>GST Registration Certificate</h3>
+              <p>
+                Company GST registration documentation for customer
+                records and vendor registration, where required.
+              </p>
+              <a
+                class="btn primary"
+                href="GST%20certificate.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Certificate / Download PDF</a>
+            </article>
+
+            <article class="resource-card">
+              <span class="resource-type">MSME Registration</span>
+              <h3>Udyam Registration Certificate</h3>
+              <p>
+                MSME/Udyam registration documentation for procurement,
+                vendor onboarding and eligible business requirements.
+              </p>
+              <a
+                class="btn primary"
+                href="Udyam%20Registration%20Certificate.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Certificate / Download PDF</a>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- AUTHORIZATION DOCUMENTS -->
+        <section class="resource-group">
+          <span class="badge">02 · Authorizations</span>
+          <h2>Authorizations & Supporting Documents</h2>
+
+          <p class="group-intro">
+            Review the company authorization and service-related
+            documentation that has been made available for
+            customer reference.
+          </p>
+
+          <div class="resource-grid">
+
+            <article class="resource-card">
+              <span class="resource-type">Authorization</span>
+              <h3>Company Authorization Letter</h3>
+              <p>
+                Supporting authorization documentation issued to
+                Sri Laxmi Sai Scientific Services.
+              </p>
+              <a
+                class="btn primary"
+                href="Authorization%20letter%20to%20Sri%20Laxmi%20Sai%20Scientific%20Services%20-%202025-26-2.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Document / Download PDF</a>
+            </article>
+
+            <article class="resource-card">
+              <span class="resource-type">Service Authorization</span>
+              <h3>Piezometer Calibration Authorization</h3>
+              <p>
+                Documentation relating to piezometer calibration
+                authorization and associated service support.
+              </p>
+              <a
+                class="btn primary"
+                href="Sri%20Laxmi%20Sai%20Scientific%20Services%20(NABL%20Piezometer%20authorization).pdf"
+                target="_blank"
+                rel="noopener"
+              >View Document / Download PDF</a>
+            </article>
+
+            <article class="resource-card">
+              <span class="resource-type">Technical Overview</span>
+              <h3>Water Measurement Technology Overview</h3>
+              <p>
+                A general overview document for customer reference
+                and technical discussions.
+              </p>
+              <a
+                class="btn primary"
+                href="Aquasense%20At%20a%20Glance.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Document / Download PDF</a>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- TECHNICAL DOCUMENTS -->
+        <section class="resource-group">
+          <span class="badge">03 · Technical Library</span>
+          <h2>Technical Product Documents</h2>
+
+          <p class="group-intro">
+            Browse the product and technical documents currently
+            available for selected water measurement and
+            groundwater-monitoring applications.
+          </p>
+
+          <div class="resource-grid">
+
+            <article class="resource-card">
+              <span class="resource-type">Water Meter</span>
+              <h3>Multi-Jet Water Meter — Technical Catalogue</h3>
+              <p>
+                Reference documentation for a multi-jet water meter.
+                Confirm model, size and application suitability
+                before making a selection.
+              </p>
+              <a
+                class="btn primary"
+                href="15-25%20MM%20Multi%20Jet%20Water%20Meter%20Class%20B%20Type%20S.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Catalogue / Download PDF</a>
+            </article>
+
+            <article class="resource-card">
+              <span class="resource-type">Water-Level Monitoring</span>
+              <h3>Digital Water Level Recorder</h3>
+              <p>
+                Product information describing a digital water-level
+                recording instrument and its monitoring application.
+              </p>
+              <a
+                class="btn primary"
+                href="Mira%20Digital%20Water%20Level%20Recorder%20by%20Sri%20Laxmi%20Sai%20Scientific%20Services.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Product Document / Download PDF</a>
+            </article>
+
+            <article class="resource-card">
+              <span class="resource-type">Reference Document</span>
+              <h3>Digital Water Flow Meter — Public Notice</h3>
+              <p>
+                Supporting reference documentation related to digital
+                water flow meters.
+              </p>
+              <a
+                class="btn primary"
+                href="25-public%20notice%20-%20digital%20water%20flow%20meter.pdf"
+                target="_blank"
+                rel="noopener"
+              >View Document / Download PDF</a>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="resource-callout">
+          <span class="badge">Need More Information?</span>
+
+          <h2>Request a Document or Technical Details</h2>
+
+          <p>
+            If you need additional product specifications, a quotation,
+            vendor documentation or technical support, contact our team
+            with your requirement and the relevant instrument details.
+          </p>
+
+          <div class="resource-actions">
+            <a class="btn primary" href="../contact.html">
+              Contact Us
+            </a>
+
+            <a class="btn outline" href="../enquiry.html">
+              Product Enquiry
+            </a>
+
+            <a class="btn outline" href="../service.html">
+              Service Request
+            </a>
+
+            <a class="btn outline" href="../gallery.html">
+              View Work Gallery
+            </a>
+          </div>
+
+          <p class="resource-note">
+            Documents are provided for reference. Please confirm the
+            current model, specifications, validity and applicable
+            authorization with our team before placing an order or
+            relying on a document for formal compliance.
+          </p>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+
+      <div>
+        <b>SRI LAXMI SAI SCIENTIFIC SERVICES</b>
+        <p>
+          Groundwater • Hydrogeology • Water Management •
+          Scientific Services
+        </p>
+      </div>
+
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../products/index.html">Products</a>
+        <a href="../solutions/index.html">Solutions</a>
+        <a href="../services/index.html">Services</a>
+        <a href="index.html">Resources</a>
+        <a href="../customers.html">Customers</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+
+      <div>
+        <a href="tel:+919290925253">+91 92909 25253</a>
+        <a href="tel:+918465089044">+91 84650 89044</a>
+        <a href="mailto:saiscientific.dhaara@gmail.com">
+          saiscientific.dhaara@gmail.com
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span>
+      Sri Laxmi Sai Scientific Services. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const menuButton = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+
+    menuButton?.addEventListener("click", () => {
+      mainNav?.classList.toggle("open");
+    });
+  </script>
+
+</body>
+</html>
