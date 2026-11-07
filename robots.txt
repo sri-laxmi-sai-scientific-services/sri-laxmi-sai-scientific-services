@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sri-laxmi-sai-scientific-services.github.io/sri-laxmi-sai-scientific-services/sitemap.xml
